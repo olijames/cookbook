@@ -1,0 +1,233 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+   .dropcap:first-letter{
+  color: #c7254e;
+  float       : left;
+  font-size   : 2.8em;
+  line-height : 0.5;
+  margin      : 0.215em 0.039em 0 0;
+}
+
+.dropcap:first-letter + span{
+  margin-left : -0.5em;
+}
+
+a {
+    color: #ee2324;
+    text-decoration: none;
+}
+
+body {
+    
+}
+
+p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+
+
+.cover{
+    height: 630px;
+    
+    border-color: white;
+    border-width: 15px;
+    border-style: solid;
+
+        background: url("../img/cover.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.full-page-img{
+
+      background: url("../img/full-page-img.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.card {
+    margin-top: 75px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding: 0px;
+    text-align: justify;
+}
+
+.card-top{
+    width: 100%;
+    background-color: black;
+}
+
+.card-content{
+    padding: 60px;
+}
+
+.card.logo img{
+
+  width: 100%;
+}
+
+.card h1{
+    text-align: center;
+    font-size: 6.5em;
+    font-family: "Francois One", "Adobe Blank";
+    color: #c7254e!important;
+    line-height: 1em!important;
+    margin-bottom: 35px;
+}
+
+.card.red {
+  color: white!important;
+  background-color: #ee2324!important;
+}
+
+.card.red h1 {
+    font-family: 'Sacramento', cursive;
+    color: white!important;
+}
+
+.card.red i {
+    font-size: 45px; 
+    color: white!important;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.sign-up{
+    background: url("../img/cover3.jpg") no-repeat center center fixed; 
+}
+
+.sign-bar {
+    margin-top: -250px;
+    margin-bottom: 250px;
+    padding: 40px;
+}
+
+.sign-bar input, input-group-addon { 
+    height: 60px; 
+    font-size: 48px;
+    padding: 20px 10px; 
+    line-height: 48px; 
+}
+
+.large-button-text {
+    font-size: 38px;
+}
+
+.tiny-cover {
+    margin-top: 50px;
+    max-width: 100px!important;
+}
+
+.img-strips {
+    width: 100%;
+    margin-bottom: 30px;
+
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.light h1{
+
+	margin-top: 165px;
+	font-size: 6.5em;
+    font-family: "Francois One", "Adobe Blank";
+    color: #c7254e!important;
+    line-height: 1em!important;
+}
+
+.dark h1{
+    color: white;
+	margin-top: 190px;
+	font-size: 5em;
+    font-family: 'Sacramento', cursive;
+
+}
+
+.black {
+    color: black;
+    font-family: 'Sacramento', cursive;
+    line-height: 1em!important;
+}
+
+.intro {
+    margin-top: 75px;
+	color: black;
+}
+
+.wide-screen {
+
+    display: none;
+}
+
+.fold-down {
+    margin-top: 40px;
+}
+
+@media (min-width: 900px) { 
+
+    .thin-screen {
+
+        display: none;
+    }
+
+    .thin-screen.black{
+
+        margin-top: -60px!important;
+    }
+
+    .wide-screen {
+
+        display: inline;
+    }
+
+}
+
+@media (max-width: 900px) { 
+
+    h1{
+        margin-top: 50px!important;
+    }
+
+}
+
+@media (max-width: 400px) { 
+
+    h1{
+        font-size: 3em!important;
+        margin-top: 50px!important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
