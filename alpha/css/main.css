@@ -214,11 +214,38 @@ p {
 
 }
 
+h2 {
+  font-family: 'Sacramento', cursive;
+}
 
+h5 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-family: "Francois One", "Adobe Blank";
+    color: #c7254e!important;
+}
 
+ul {
+    padding: 0 0 0 1em; // left indent, no other padding
+    margin: 0 0 1em 0;  // space on bottom, maybe use a bottom-padding instead
+}
+ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 25px;
+    margin-bottom: 5px; 
+}
 
+ol li {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px; 
+}
 
-
+li {
+  margin-top: 3px;
+}
 
 
 
