@@ -116,10 +116,10 @@ p {
 }
 
 .sign-bar input, input-group-addon { 
-    height: 60px; 
-    font-size: 48px;
+    height: 50px; 
+    font-size: 38px;
     padding: 20px 10px; 
-    line-height: 48px; 
+    line-height: 38px; 
 }
 
 .large-button-text {
@@ -245,6 +245,12 @@ ol li {
 
 li {
   margin-top: 3px;
+}
+
+.large-button-text {
+    color: white;
+    background-color: #c7254e!important;
+    border: none;
 }
 
 
