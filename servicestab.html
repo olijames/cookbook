@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+    <title>Task Finder</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+
+  <script>
+
+</script>
+      <h2>Colour consultation</h2>
+            <h5>The Perfect Hue </h5> 
+            <p>Interior / Exterior or both</p>
+             <p>This Package contains a colour scheme that I will personal select for you, a written room by room  schedule for your painter, and colour samples.</p>
+             <p>This package will free you from agonising over what tint, shade or type of paint to use.
+             I will do it for you.</p>
+              
+         <h2>New Build  </h2>
+        <h5>A Fresh Start </h5>
+           <p>Total Interior Design Concepts</p>
+           <p>A package that will solve all your design dilemmas when you build a new house or have a total renovation.</p>
+           <p>I will save you time and money by bringing everything to you.</p>
+           <li>Your personal exterior colour scheme </li>
+            <li> Your personal interior colour scheme </li>
+            <li> All Kitchen surface colours , materials and hardware </li>
+            <li> Hard flooring </li>
+            <li> Soft flooring </li>
+            <li> Selected bathroom colours materials & fittings </li>
+            <li> Lighting suggestions for house </li>
+            <li> Furniture suggestions </li>
+           <li> The perfect Fabric choice for your Curtains and blinds and cushions </li>
+           <li> Assessory advice </li>
+
+         
+          <h2>Renovation</h2>
+          <h5>Reno Rumble </h5>
+          <p>I will create a package that is especially for your needs, covering any aspect of renovation . Kitchen, bathroom, laundry,
+          bedrooms, living, lounges or  study. Redesign, refurbish or new  all aspects covered.</p>
+         
+         
+      <h2>Chic Curtains+ Cushions</h2>
+               <p>I will help you narrow down choices and find a fabrics that suits your needs and desires.</p>
+        <p>I will create beautiful curtains and cushions to enhance your interior with the talented crafts people I work with.
+        Blinds and shutters also available</p>
+
+ 
+     <h2>Flooring</h2>
+    <h5>Carpet, tiles, vinyl, wood </h5>
+     <p>All samples bought to you</p>
+
+    <h2>Furniture</h2>
+    <p>Finding the best furniture for your needs.</p>
+
+<script  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <script>
+        $('#submit').click(function(event){
+            event.preventDefault();
+            var name = $('#first-name').val() + " " + $('#last-name').val()  
+            var email = $('#email').val()
+            $.post("https://rocky-earth-6889.herokuapp.com/messages.json", {"message":{"name":name,"note":"||| Joining Newsletter |||","contact":email}}, function( data ) {});
+             setTimeout(function (){
+
+                     $('#before').addClass('hide');
+
+                     $('#after').removeClass('hide');
+
+            }, 4000);
+                
+        });
+    </script>
+</body>
+</html>

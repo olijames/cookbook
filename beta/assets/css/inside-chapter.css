@@ -1,0 +1,76 @@
+.full-page-img {
+            background: no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+	hr {
+		  border:none;
+		  border-top: 2px dotted black;
+		  color: black;
+		  background-color: #fff;
+		  height: 5px;
+		  width: 70%;
+		}
+
+.inside-chapter-card {
+
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
+.sponsor-chapter-card {
+	padding: 0;
+}
+
+.sponsor {
+
+	margin: 0px!important;
+	background-color: black;
+	width: 80%!important;
+}
+
+.inside-chapter-card h5 {
+	margin-top: 30px;
+}
+
+.share-card {
+	background-color: rgba(153,204,103,0.5)!important;	
+}
+
+.share-card p {
+	margin-bottom: 0px;
+}
+
+.share-card h5 {
+	margin-top: 25px; 
+}
+
+
+i.fa {
+	font-size: 2.5em;
+	margin: 40px;
+	text-indent: 0;
+}
+
+
+@media (max-width: 600px){ 
+
+	i.fa {
+		font-size: 2em;
+		margin: 20px;
+		text-indent: 0;
+	}
+
+}
+
+@media (max-width: 1200px){ 
+
+	.inside-chapter-card {
+
+		margin-top: 400px;
+		margin-bottom: 400px;
+	}
+}
