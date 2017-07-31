@@ -590,7 +590,7 @@ body {
     padding-top: 210px;
     z-index: -1!important;
     margin-top: -190px!important;
-    min-height: 350px!important;
+    min-height: 380px!important;
 }
 
 .chapter-card-img {
@@ -634,6 +634,7 @@ body {
 
 .order-card {
     
+
 }
 
 @media (min-width: 990px){

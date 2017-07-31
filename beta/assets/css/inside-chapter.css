@@ -28,8 +28,12 @@
 .sponsor {
 
 	margin: 0px!important;
-	background-color: black;
 	width: 80%!important;
+}
+
+.sponsor.img-responsive{
+	text-align: center;
+	margin: 0 auto!important;
 }
 
 .inside-chapter-card h5 {
