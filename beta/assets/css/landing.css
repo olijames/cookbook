@@ -632,6 +632,10 @@ body {
     z-index: 1!important;
 }
 
+.order-card {
+    
+}
+
 @media (min-width: 990px){
 
     .bottom-row {
