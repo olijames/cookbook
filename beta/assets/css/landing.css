@@ -117,7 +117,7 @@
 
 .logo-container .logo{
     overflow: hidden;
-    width: 100px;
+    width: 150px;
     float: left;
     margin-left: 20px;
 }
@@ -443,6 +443,18 @@
 
 }
 
+.navbar.navbar-transparent {
+
+      background: rgba(0,0,0,0.7); /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,0.6)); /*Safari 5.1-6*/
+      background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.6)); /*Opera 11.1-12*/
+      background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.6)); /*Fx 3.6-15*/
+      background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.6)); /*Standard*/
+
+}
+
+
+
 h2 {
     
     margin-top: 0!important;
@@ -459,11 +471,19 @@ h2.display-text.main-header  {
 }
 
 .tagline {
-    font-family: 'Avenir';
+    font-family: 'Avenir-Medium';
     color: black!important;
     margin-top: 7px!important;
+    color: #99CC67!important;
     font-size: 2.9em;
+    font-weight: 100;
 
+}
+.tagline span {
+}
+.tagline sup {
+    font-weight: 700;
+    font-size: 30px;
 }
 
 h4.cueline  {
@@ -499,6 +519,10 @@ h4.cueline  {
     .tagline {
         margin-top: 7px!important;
         font-size: 1.5em;
+    }
+
+    .chapters h4 {
+        font-size: 1em!important; 
     }
 }
 
@@ -586,11 +610,15 @@ body {
     margin-top: 50px;
 }
 
+.chapters h4 {
+    font-size: 1.5em!important; 
+}
+
 .chapter-card {
     padding-top: 210px;
     z-index: -1!important;
     margin-top: -190px!important;
-    min-height: 380px!important;
+    min-height: 330px!important;
 }
 
 .chapter-card-img {
