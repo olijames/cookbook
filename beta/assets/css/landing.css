@@ -717,6 +717,7 @@ body {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+    float: none!important;
 }
 
 @keyframes spin {

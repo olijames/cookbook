@@ -149,43 +149,43 @@
 													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">First Name</label>
-															<input type="email" class="form-control">
+															<input id="first" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">Last Name</label>
-															<input type="email" class="form-control">
+															<input id="last" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Email Address</label>
-															<input type="email" class="form-control">
+															<input id="email" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Street Address</label>
-															<input type="email" class="form-control">
+															<input id="street" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Suburb</label>
-															<input type="email" class="form-control">
+															<input id="suburb" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-9">
 														<div class="form-group label-floating">
 															<label class="control-label">City</label>
-															<input type="email" class="form-control">
+															<input id="city" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-sm-3">
 														<div class="form-group label-floating">
 															<label class="control-label">Postcode</label>
-															<input type="email" class="form-control">
+															<input id="postcode" type="text" class="form-control">
 														</div>
 													</div>
 
@@ -227,7 +227,7 @@
 												<a onClick="submit()" class="col-xs-12 btn btn-primary">Next</a>
 											</form>
 
-											<div class="loader hide col-xs-12"></div>
+											<div class="loader hide col-xs-12 center-block"></div>
 
 											<form id="contact" class="hide">
 												<h4 class="text-center ">Orders of more than 5</h4>
@@ -242,6 +242,18 @@
 				            </div>
 				    </div>
 				</div>
+			</div>
+
+			<div class="col-md-5  col-xs-12 fold-down-four">
+						<img src="assets/img/Dropbox/cover.jpg" alt="Raised Image" class="img-responsive img-raised im order-card-img ">
+						<div class="card base-card people-card">
+							
+							<br />
+							
+							<h4>Order Online</h4>
+					                <hr />
+
+						</div>
 			</div>
 			
 		</div>
@@ -388,6 +400,7 @@
 	var copyPrice = 0;
 	var deliveryPrice = 0;
 	var priceEstimate = 0;
+	var copynumber = 0
 
 	var delivery = "New Zealand";
 
@@ -455,6 +468,8 @@
 				$("#copiesbutton").html( number + "  Copies");
 			}
 
+			copynumber = number;
+
 			copyPrice = number * 39;
 
 			updatePrice();
@@ -479,11 +494,26 @@
 		function submit() {
 			$("#payment").addClass("hide");
 			$(".loader").removeClass("hide");
+			send();
 		}
 
 		function contact() {
 			$("#order").addClass("hide");
 			$("#contact").removeClass("hide");
+		}
+
+		function send() {
+
+			console.log($("#first").val());
+
+			var detail = copynumber + " " + deliveryPrice + " " + $("#first").val() + " " + $("#last").val() + " " + $("#email").val() + " " + $("#street").val() + " " + $("#suburb").val() + " " + $("#city").val() + " " + $("#postcode").val() + " ";
+
+			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": "cook" , "plan":5, "content": detail }} )
+			              .done(function( data ) {
+			              	console.log(data);
+			              	
+
+			            });
 		}
 
 </script>
