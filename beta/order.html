@@ -63,13 +63,13 @@
 				<div class="card order-card col-md-12 plain-text fold-down-four">
 					<div class="pay-section section col-md-12 ">
 							<div class="row">
-				                
+				                <h3>Order Online</h3>
 				                <legend></legend>
 				                			
 				                			<form id="order">
-				                				<h4 class="text-center ">Order</h4>
+				                				<h4 class="text-center ">Your Order</h4>
 				                				<div class="row">
-					                				<div class="col-xs-8">
+					                				<div class="col-xs-6">
 														<div class="form-group">
 															<h5>Your Order</h5>
 															<div class="dropdown">
@@ -83,6 +83,12 @@
 															    <li><a onClick="copies(6)">Five +</a></li>
 															  </ul>
 															</div>
+														</div>
+													</div>
+													<div class="col-xs-6">
+														<div class="form-group">
+															<h2 id="priceEstimate">$0</h2>
+															
 														</div>
 													</div>
 												</div>
@@ -107,13 +113,13 @@
 														<div class="checkbox">
 															<label>
 																<input id="office2" type="checkbox" name="optionsCheckboxes"  class="check">
-																Westcoast &nbsp<b>$5</b>
+																Westcoast &nbsp<b>Free</b>
 															</label>
 														</div>
 														<div class="checkbox">
 															<label>
 																<input id="office3" type="checkbox" name="optionsCheckboxes"  class="check">
-																Ashburton &nbsp<b>$9.80</b>
+																Ashburton &nbsp<b>Free</b>
 															</label>
 														</div>
 													</div>
@@ -126,7 +132,7 @@
 													<div class="checkbox">
 														<label>
 															<input id="delivery2" type="checkbox" name="optionsCheckboxes"  class="check">
-															Courier - Anywhere in New Zealand &nbsp<b>$9.80</b>
+															Courier - Anywhere in New Zealand &nbsp<b>$10</b>
 														</label>
 													</div>
 
@@ -222,6 +228,15 @@
 											</form>
 
 											<div class="loader hide col-xs-12"></div>
+
+											<form id="contact" class="hide">
+												<h4 class="text-center ">Orders of more than 5</h4>
+												<div class="row tim-row">
+													<p>Please contact the Cancer Society directly for any orders of more than 5.</p>
+												</div>
+
+												
+											</form>
 				                
 
 				            </div>
@@ -370,7 +385,11 @@
 
 	<script>
 
-	var delivery = "New Zealand"
+	var copyPrice = 0;
+	var deliveryPrice = 0;
+	var priceEstimate = 0;
+
+	var delivery = "New Zealand";
 
 		$().ready(function(){
 
@@ -396,6 +415,8 @@
 			        	$("#delivery2").attr('checked', false);
 			        	$("#delivery3").attr('checked', false);
 
+			        	deliveryPrice = 0;
+
 			        } else {
 
 			        	$("#office").attr('checked', false);
@@ -405,27 +426,44 @@
 
 			        	if(this.id === 'delivery1'){
 			        		$("#delivery2").attr('checked', false);
+			        		deliveryPrice = 5;
 			        	} else {
 			        		$("#delivery1").attr('checked', false);
+			        		deliveryPrice = 10;
 			        	}
 
 			        }
+			        updatePrice();
 			    }
 			    
 
 		    } else {
-		        // Checkbox is not checked.
+		        deliveryPrice = 0;
+		        updatePrice();
 		    }
 		});
 
 		function copies(number) {
-			console.log("fire");
+
+			copyPrice = 0;
+			
+			if(number === 6) { contact(); }
+
 			if(number === 1) {
 				$("#copiesbutton").html("1  Copy");
 			} else {
 				$("#copiesbutton").html( number + "  Copies");
 			}
 
+			copyPrice = number * 39;
+
+			updatePrice();
+
+		}
+
+		function updatePrice() {
+			priceEstimate = (copyPrice + deliveryPrice);
+			$( "#priceEstimate" ).html("$"+priceEstimate);
 		}
 
 		function order() {
@@ -441,6 +479,11 @@
 		function submit() {
 			$("#payment").addClass("hide");
 			$(".loader").removeClass("hide");
+		}
+
+		function contact() {
+			$("#order").addClass("hide");
+			$("#contact").removeClass("hide");
 		}
 
 </script>
