@@ -1,0 +1,154 @@
+.full-page-img {
+            background: no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+	hr {
+		  border:none;
+		  border-top: 2px dotted black;
+		  color: black;
+		  background-color: #fff;
+		  height: 5px;
+		  width: 70%;
+		}
+
+.inside-chapter-card {
+
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
+
+
+.sponsor {
+	padding: 0;
+	background-color: white;
+	float:none;
+}
+
+
+
+.inside-chapter-card h5 {
+	margin-top: 30px;
+}
+
+.share-card {
+	background-color: rgba(153,204,103,0.5)!important;	
+}
+
+.share-card p {
+	margin-bottom: 0px;
+}
+
+.share-card h5 {
+	margin-top: 25px; 
+}
+.order-card h5 {
+	font-size: 14px!important;
+	text-align: left;
+	font-family: Avenir-Black;
+	padding-left: 40px;
+}
+.order-card h4 {
+	font-size: 20px!important;
+	text-align: center;
+}
+.order-card h3 {
+	font-size: 28px!important;
+	text-align: center;
+}
+.order-card h2 {
+	font-size: 62px;
+}
+.order-card {
+	width: 100%!important;
+	padding: 70px;
+	font-size: 2em;
+}
+.order-card a {
+	color: black!important;
+}
+.order-card li a{
+	font-size: 1.2em!important;
+}
+.order-card a:hover {
+	color: white!important;
+}
+.btn-full {
+	width: 100%!important;
+	font-size: 0.6em!important;
+}
+.order-card .office {
+	margin-left: 25px;
+}
+
+@media (max-width: 600px){ 
+
+	.order-card {
+		padding: 40px;
+		font-size: 1.5em;
+	}
+
+	.order-card li a{
+		font-size: 0.8em!important;
+	
+	}
+
+	.btn-full {
+		width: 100%!important;
+		font-size: 0.5em!important;
+	}
+
+	
+}
+
+@media (max-width: 400px){ 
+
+	.order-card {
+		padding: 40px;
+		font-size: 1.3em;
+	}
+
+	.order-card li a{
+		font-size: 0.6em!important;
+	
+	}
+
+	.btn-full {
+		width: 100%!important;
+		font-size: 0.4em!important;
+	}
+
+	
+}
+
+
+
+i.fa {
+	font-size: 2.5em;
+	margin: 40px;
+	text-indent: 0;
+}
+
+
+@media (max-width: 600px){ 
+
+	i.fa {
+		font-size: 2em;
+		margin: 20px;
+		text-indent: 0;
+	}
+
+}
+
+@media (max-width: 1200px){ 
+
+	.inside-chapter-card {
+
+		margin-top: 400px;
+		margin-bottom: 400px;
+	}
+}
