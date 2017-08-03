@@ -553,6 +553,11 @@ body {
     background-repeat: repeat;
 }
 
+.order-page {
+    background-image: url("../img/classy_fabric.png");
+    background-repeat: repeat;
+}
+
 .menu-modal .modal-dialog {
   width: 100%;
   height: 100%;
@@ -586,6 +591,11 @@ body {
 
 .modal-section {
     margin-top: 40px;
+}
+
+.modal .logo img{
+    text-align: center;
+    max-width: 100%;
 }
 
 .components-page .wrapper > .header, .landing-page .wrapper > .header { 
@@ -650,6 +660,16 @@ body {
      position: relative;
      z-index: 2!important;
 }
+
+.order-card-img {
+     width: 90%!important;
+     margin: 0 auto;
+     margin-top: 50px;
+     margin-bottom: -10px;
+     position: relative;
+     z-index: 2!important;
+}
+
 .people-card {
     width: 80%!important;
     margin-left: 10%;
@@ -661,9 +681,12 @@ body {
 }
 
 .order-card {
-    
-
+    width: auto!important;
+    margin-bottom: 200px!important;
+    float: none!important;
 }
+
+
 
 @media (min-width: 990px){
 
@@ -679,5 +702,28 @@ body {
     color: #FFFFFF!important;
 }
 
+.fb {
+    margin-top: 20px;
+}
 
+.full-width img{
+    width: 100%!important;
+}
 
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pay-section {
+    min-width: 100%!important;
+}

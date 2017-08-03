@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Index</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+    <link href="assets/css/typeplate.css" rel="stylesheet"/>
+
+	<link href="assets/css/landing.css" rel="stylesheet" />
+	<link href="assets/css/text.css" rel="stylesheet" />
+	<link href="assets/css/inside-chapter.css" rel="stylesheet" />
+
+
+</head>
+
+<body class="order-page">
+
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="modal" data-target="#myModal">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <a href="#">
+           <div class="logo-container">
+                <div class="logo">
+                    <img src="assets/img/logo.png" >
+                </div>
+            </div>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+		<ul  class="nav navbar-nav navbar-right">
+			<li>
+				<a href="#"  data-toggle="modal" data-target="#myModal">Menu</a>
+			</li>
+    	</ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-7 col-xs-12">
+				<div class="card order-card col-md-12 plain-text fold-down-four">
+					<div class="pay-section section col-md-12 ">
+							<div class="row">
+				                
+				                <legend></legend>
+				                			
+				                			<form id="order">
+				                				<h4 class="text-center ">Order</h4>
+				                				<div class="row">
+					                				<div class="col-xs-8">
+														<div class="form-group">
+															<h5>Your Order</h5>
+															<div class="dropdown">
+															  <button id="copiesbutton" class="btn btn-primary btn-full dropdown-toggle" type="button" data-toggle="dropdown">Number of Copies &nbsp<span class="caret"></span></button>
+															  <ul class="dropdown-menu">
+															    <li><a onClick="copies(1)">One</a></li>
+															    <li><a onClick="copies(2)">Two</a></li>
+															    <li><a onClick="copies(3)">Three</a></li>
+															    <li><a onClick="copies(4)">Four</a></li>
+															    <li><a onClick="copies(5)">Five</a></li>
+															    <li><a onClick="copies(6)">Five +</a></li>
+															  </ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-6"></div>
+												<br />
+												<br />
+												<h5>Shipping Method </h5>
+												<div class="col-xs-12">
+													<div class="checkbox">
+														<label>
+															<input id="office" type="checkbox" name="optionsCheckboxes" class="check">
+															Pick Up from local Cancer Society office &nbsp<b>Free</b>
+														</label>
+													</div>
+													<div class="office hide">
+														<div class="checkbox">
+															<label>
+																<input id="office1" type="checkbox" name="optionsCheckboxes" class="check">
+																Christchurch &nbsp<b>Free</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office2" type="checkbox" name="optionsCheckboxes"  class="check">
+																Westcoast &nbsp<b>$5</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office3" type="checkbox" name="optionsCheckboxes"  class="check">
+																Ashburton &nbsp<b>$9.80</b>
+															</label>
+														</div>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery1" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - Canterbury &nbsp<b>$5</b>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery2" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - Anywhere in New Zealand &nbsp<b>$9.80</b>
+														</label>
+													</div>
+
+
+												
+												</div>
+												<a onClick="order()" class="col-xs-12 btn btn-primary">Next</a>
+											</form>
+
+										
+											<form id="details" class="hide">
+											<h4 class="text-center ">Details</h4>
+												<div class="row tim-row">
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">First Name</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">Last Name</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Email Address</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Street Address</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Suburb</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-9">
+														<div class="form-group label-floating">
+															<label class="control-label">City</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group label-floating">
+															<label class="control-label">Postcode</label>
+															<input type="email" class="form-control">
+														</div>
+													</div>
+
+												</div>
+												<a onClick="details()" class="col-xs-12 btn btn-primary">Next</a>
+											</form>
+
+											
+
+											<form id="payment" class="hide">
+												<h4 class="text-center ">Payment</h4>
+												<div class="row tim-row">
+													<div class="col-sm-8">
+														<div class="form-group label-floating">
+																<label class="control-label">Credit Card Number</label>
+																<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group label-floating">
+																<label class="control-label">CSV</label>
+																<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group label-floating">
+																<label class="control-label">Name on Card</label>
+																<input type="email" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group label-floating">
+																<label class="control-label">Card Expiary Date</label>
+																<input type="email" class="form-control">
+														</div>
+													</div>
+												</div>
+
+												<a onClick="submit()" class="col-xs-12 btn btn-primary">Next</a>
+											</form>
+
+											<div class="loader hide col-xs-12"></div>
+				                
+
+				            </div>
+				    </div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="modal fade menu-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="container">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<h4>Close</h4>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<row>
+						<div class="col-md-4">
+							<a href="#home"><h4>Home</h4></a>
+						</div>
+						<div class="col-md-4">
+							 
+						</div>
+						<div class="col-md-4">
+							<a href="order.html"><h4><b>Order Now</b></h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<br />
+					<br />
+					<row>
+						<div class="col-md-4">
+							<a href="index.htmlindex.html#overview"><h4>Overview</h4></a>
+						</div>
+						<div class="col-md-4">
+							 <a href="index.html#timeline"><h4>Timeline</h4></a>
+						</div>
+						<div class="col-md-4">
+							<a href="index.html#involved"><h4>Get Involved</h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Sample Recipe Chapters</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-starters.html"><h4>Starters & Something Light</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-fish.html"> <h4>Fish & Seafood</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-meat.html"><h4>Meat & Poultry</h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-vege.html"><h4>Vege, Salads & Sides</h4></a>
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-dessert.html"><h4>Desserts & Pudding</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-baking.html"><h4>Baking & Treats </h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-party.html"><h4>Party Food & Drinks</h4></a>
+							</div>
+							<div class="col-md-4">
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Contributors</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="index.html#deborah"><h4>Deborah Aspray</h4></a>
+							</div>
+							<div class="col-md-4">
+								 
+							</div>
+							<div class="col-md-4">
+								<a href="index.html#tony"><h4>Tony Smith</h4></a>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								
+							</div>
+							<div class="col-md-4">
+					                <div class="logo">
+					                    <a href="https://canterbury-west-coast.cancernz.org.nz/"><img src="assets/img/logo.png" ></a>
+					                </div>
+							</div>
+							<div class="col-md-4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!--  End Modal -->
+
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/material.min.js"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="assets/js/material-kit.js" type="text/javascript"></script>
+
+	<script>
+
+	var delivery = "New Zealand"
+
+		$().ready(function(){
+
+			$(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
+
+		});
+
+		$('input[type=checkbox]').change(function(){
+			
+			
+		    if($(this).is(':checked')) {
+		        console.log(this.id);
+
+		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3') {
+
+		        } else {
+
+
+		        //$(".check").attr('checked', false);
+			        if(this.id === 'office' ) {
+			        	
+			        	$(".office").removeClass("hide");
+			        	$("#delivery2").attr('checked', false);
+			        	$("#delivery3").attr('checked', false);
+
+			        } else {
+
+			        	$("#office").attr('checked', false);
+			        	$("#office1").attr('checked', false);
+			        	$("#office2").attr('checked', false);
+			        	$("#office3").attr('checked', false);
+
+			        	if(this.id === 'delivery1'){
+			        		$("#delivery2").attr('checked', false);
+			        	} else {
+			        		$("#delivery1").attr('checked', false);
+			        	}
+
+			        }
+			    }
+			    
+
+		    } else {
+		        // Checkbox is not checked.
+		    }
+		});
+
+		function copies(number) {
+			console.log("fire");
+			if(number === 1) {
+				$("#copiesbutton").html("1  Copy");
+			} else {
+				$("#copiesbutton").html( number + "  Copies");
+			}
+
+		}
+
+		function order() {
+			$("#order").addClass("hide");
+			$("#details").removeClass("hide");
+		}
+
+		function details() {
+			$("#details").addClass("hide");
+			$("#payment").removeClass("hide");
+		}
+
+		function submit() {
+			$("#payment").addClass("hide");
+			$(".loader").removeClass("hide");
+		}
+
+</script>
+</html>

@@ -10,8 +10,6 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="assets/css/normalize.min.css">
@@ -19,25 +17,19 @@
     <link href="assets/css/material-kit.css" rel="stylesheet"/>
     <link href="assets/css/typeplate.css" rel="stylesheet"/>
 
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="assets/css/demo.css" rel="stylesheet" />
+	<link href="assets/css/landing.css" rel="stylesheet" />
+	<link href="assets/css/text.css" rel="stylesheet" />
 
-	<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
-
-        <link href="https://fonts.googleapis.com/css?family=Dr+Sugiyama" rel="stylesheet">
-
-         <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 </head>
 
-<body class="tutorial-page">
+<body class="landing-page">
 
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button id="menu-toggle" type="button" class="navbar-toggle">
+      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="modal" data-target="#myModal">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar bar1"></span>
         <span class="icon-bar bar2"></span>
@@ -56,7 +48,7 @@
     <div class="collapse navbar-collapse">
 		<ul  class="nav navbar-nav navbar-right">
 			<li>
-				<a href="index.html" data-toggle="modal" data-target="myModal">Menu</a>
+				<a href="#"  data-toggle="modal" data-target="#myModal">Menu</a>
 			</li>
     	</ul>
 
@@ -64,73 +56,97 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="wrapper">
-	<div class="header header-filter" style="background-image: url(assets/img/Beans&Eggs.jpg);">
+<div id="home" class="wrapper">
+	<div class="header header-filter" style="background-image: url(assets/img/Dropbox/CSCB_Cover.jpg);">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<h2 class="title text-center display-text">The Cancer Society's</h2>
-					<h1 class="title text-center display-text">Food Connection</h1> 
-					<h2 class="tagline title text-center display-text">Some kind of Tagline</h2>
-					<!--<h1 class="title text-center display-text">FOOD CONNECTION</h1>-->
+				<div class="col-md-8 col-md-offset-2">
+					<div class="card card-raised" style="background-image: url('assets/img/crossword.png');">
+						<h2 class="text-center display-text main-header">THE FOOD CONNECTION</h2> 
+						<h2 class="tagline title text-center display-text"><span>FAMILY</span> <sup>.</sup> <span>FRIENDS</span> <sup>.</sup> <span>FOOD</span></h2>
+						<!--<h1 class="title text-center display-text">FOOD CONNECTION</h1>-->
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
-	<div class="container">
+</div>
+
+<br>
+
+<div id="home" class="container">
 		<div class="row">
 			<div class="col-md-7 col-xs-12">
-				<div class="main main-raised col-md-12 plain-text">
-					<div class="section col-md-12 fold-up">
-				        <div class="container col-md-12">
+				<div class="main main-raised col-md-12 plain-text fold-up">
+					<div class="section col-md-12 ">
 							<div class="row tim-row">
-				                <h2 class="text-center">Overview</h2>
+				                <h3>Food Connection</h3>
 				                <legend></legend>
 				                <div class="col-md-10 col-md-offset-1">
-				                    <p class="dropcap">I feel like this would be a good place for a personal message from someone  with either a signature or photo, describing the goals of the book from both a fundraising and foodie perspective. </p>
-				                    <p>
-				                        
-										<b>Cu iisque apeirian sed,</b> tation aeterno invenire ei vim. Ea eam vitae viderer mediocrem, duo agam percipit periculis te. Ullum facer ut qui, pro libris tritani omnesque ad. Liber meliore officiis mel te, sit ea doming mandamus necessitatibus, ad augue iriure honestatis duo. Mutat inani latine cu mel, est ne mazim commune. Veri nulla his ei, dicta sonet option et vel.
-				                    </p>
+				                    <p class="dropcap">Food connects our lives, our loves, our family, our community and our work at the Cancer Society. Food is an integral part of our lives, and not in the least here at the Cancer Society, where preparing, sharing, enjoying, gifting, sustaining and loving food is part of healing and coping with cancer.</p><p>
+									The recipes featured in The Food Connection have been chosen from an amazing selection offered by Cancer Society friends, volunteers, family, patients and supporters from throughout our Canterbury and West Coast region. The love and passion for the work and services delivered by the Cancer Society is reflected in the tempting selection of food treats showcased in this beautiful recipe book.</p><p>
+									Our volunteers throughout the region are the face of the Cancer Society in their community, and many of the recipes contributed in this book are from our Cancer Society Volunteer Groups. We are also thrilled to be able to include some recipes from well-known New Zealand chefs who were delighted to support this project.</p><p>
+									The Cancer Society’s work covers health promotion, the funding of cancer research and our supportive care programmes.  Having cancer can be hard, but finding help shouldn’t be. By purchasing this recipe book you are helping to ensure that our services are available to people when they need them. </p><p>
+									Thank you for purchasing The Food Connection, we hope you enjoy it. </p><p>
+									Happy Cooking</p><p><b>
+									Kate and Liz</b></p><p>
+									Kate Reid (Chair) and Elizabeth Chesterman (Chief Executive) Cancer Society of New Zealand Canterbury West Coast Division.</p>
+									<br />
+									<br />
+									
+									<h4 id="timeline" class="text-center">Timeline</h4>
+									<hr>
+									 <p>The Food Connection will be available for purchase from select Paper Plus stores as of late September and selected stores around the Canterbury-West Coast region. However, if you are as excited about the book as we are you can pre-order your book here and we can get it sent to you as soon as it arrives in the building! </p>
+									 <br />
+									<br />
+									<h4 id="involved" class="text-center">Get Involved </h4>
+									<hr>
+									<p>For more news about what else is happening at the Cancer Society please go to our website or follow us on facebook.</p>
+									<div class=" hidden-xs hidden-sm hidden-md">
+										<a href="https://canterbury-west-coast.cancernz.org.nz/"><img src="assets/img/cancer-society2x.gif" alt="Raised Image" class="img-responsive col-md-3  col-xs-6"></a>
+										<div class="col-md-9 col-xs-6 fb">
+											
+											<iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fcancercwc&width=400&height=80&layout=standard&size=large&show_faces=true&appId" width="400" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+										</div>
+									</div>
+									<div class=" hidden-lg">
+										<a href="https://canterbury-west-coast.cancernz.org.nz/"><img src="assets/img/cancer-society2x.gif" alt="Raised Image" class="img-responsive col-xs-6"></a>
+										<div class="col-xs-6 fb">
+											
+											<iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fcancercwc&width=78&height=65&layout=box_count&size=large&show_faces=true&appId" width="78" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+										</div>
+									</div>
+
 				                </div>
-
-				            </div>
-
-				            <div class="row tim-row">
-				                <h2 class="text-center">Timeline</h2>
-				                <legend></legend>
-				                <div class="col-md-10 col-md-offset-1">
-				                <p class="dropcap">
-				                	This section of the page could be a typical marketing description of the book. Including when it's available to order. Te impedit qualisque conceptam ius, modo tantas et eam. Has elitr prodesset ex. Ei est affert scripta, mea ex nulla nominavi tractatos. Est in duis ancillae dissentias. Eu pro tantas <code>vidisse eleifend, vel cu consul</code> putant percipitur, in quot dicit neglegentur has.
-				                </p>
-				                <p>
-				                    Vim diceret legendos ad, sit cu amet primis. Iracundia ullamcorper no eam. Dicit petentium ad sed, vix id nonumy omnium nonumes. <i>An mei maiorum ullamcorper,</i> vis et veniam legendos invenire. Duo ex deserunt molestiae percipitur, ius te graeci eirmod, eam impedit delicata corrumpit cu. Mea an solet persius vituperatoribus, ne sea nisl clita consetetur. Mei cu posse mollis nostrum, ne mel civibus accusamus, vel tritani sententiae neglegentur an.and ready to use.
-				                </p>
-				                </div>
-				            </div>
-
-				             <div class="row tim-row">
-				                <h2 class="text-center">Get Involved</h2>
-				                <legend></legend>
-				                <div class="col-md-10 col-md-offset-1">
-				                <p class="dropcap">
-				                	Finally, this section could contain all of the secondary calls to action. Links for people wanting to become a sponsor or submit a recipe etc. Contact information for the people involved, how to find us on fb etc.</p><p>
-									An email notification bar allows a user to enter their email to be reminded of the book when it's available, but this could be taken further with a full form or a survey.
-				                </p>
 				                
-				                </div>
+
 				            </div>
+				           
+
+				           
+
 				            
-				        </div>
 				    </div>
 				</div>
 			</div>
-			<div class="col-md-5 col-xs-12 fold-down">
-				<img src="assets/img/Dropbox/CSCB_Whitebait2Ways.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
+
+
+			<div id="buy" class="col-md-5  col-xs-12 ">
+						<img src="assets/img/Dropbox/cover.jpg" alt="Raised Image" class="img-responsive img-raised im order-card-img ">
+						<div class="card base-card people-card">
+							
+							<br />
+							
+							<h4>Order Online</h4>
+					                <hr />
+
+						</div>
 			</div>
+			
 		</div>
 	</div>
-	<div class="header fold-up-four" style="background-image: url(assets/img/Dropbox/BakedFeta.jpg);">
+	<div class="fold-up-four middle-break">
 		<div class="container">
 			<div class="row"> 
 				<div class="col-md-6 col-md-offset-3">
@@ -139,151 +155,249 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 col-xs-6 fold-down">
+
+	<div class="chapters">
+		<div class="container" >
+
+			<div class="row">
+					<div class="col-md-3 col-xs-6 center-block"><a href="chapter-starters.html">
+						<img src="assets/img/Dropbox/CSCB_CasinoChapter_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Christchurch Casino</h5>
+							<h4>Starters & Something Light</h4>
+						</div>
+					</a></div>
+					<div class="col-md-3 col-xs-6 center-block"><a href="chapter-fish.html">
+						<img src="assets/img/Dropbox/CSCB_AkaroaSalmon_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Akaroa Salmon</h5>
+							<h4>Fish & Seafood</h4>
+						</div>
+					</a></div>
+					<div class="col-md-3 col-xs-6 center-block"><a href="chapter-meat.html">
+						<img src="assets/img/Dropbox/CSCB_LentuneChicken_narrow2.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Lentune</h5>
+							<h4>Meat & Poultry</h4>
+						</div>
+					</a></div>
+					<div class="col-md-3 col-xs-6 center-block"><a href="chapter-vege.html">
+						<img src="assets/img/Dropbox/CSCB_StaplesRodway_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Staples Rodway</h5>
+							<h4>Vege, Salads & Sides</h4>
+						</div>
+					</a></div>
+			</div>
+			<br />
+			<div class="row bottom-row">
+					<div class="col-md-3 col-xs-6"><a href="chapter-dessert.html">
+						<img src="assets/img/Dropbox/CSCB_JDesserts_CCulture_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Just Desserts & Coffee Culture</h5>
+							<h4>Desserts & Pudding</h4>
+						</div>
+					</a></div>
+					<div class="col-md-3 col-xs-6 "><a href="chapter-baking.html">
+						<img src="assets/img/Dropbox/CSCB_Asko_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Asko Design</h5>
+							<h4>Baking & Treats </h4>
+						</div>
+					</a></div>
+					<div class="col-md-3 col-xs-6"><a href="chapter-party.html">
+						<img src="assets/img/Dropbox/CSCB_BarrysBayCheese_narrow.jpg" alt="Raised Image" class="img-responsive img-raised chapter-card-img ">
+						<div class="card base-card chapter-card">
+							
+							<br />
+							<h5 class="cueline">Barrys Bay Cheese</h5>
+							<h4>Party Food & Drinks</h4>
+						</div>
+					</a></div>
+			</div>
+			
 				
-				<img src="assets/img/Dropbox/CSCB_ChocChilliCake_2.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				<img src="assets/img/Dropbox/CSCB_DaffodilCake.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				<img src="assets/img/Dropbox/CSCB_ProsAspGalette.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				<img src="assets/img/Dropbox/CSCB_SalmonMango.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				 
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				<img src="assets/img/Dropbox/CSCB_SeafoodChowder.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-			<div class="col-md-3 col-xs-6 fold-down">
-				<img src="assets/img/Dropbox/CSCB_Whitebait2Ways.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="container fold-down-four">
-		<div class="row">
-			<div class="col-md-12 col-xs-12">
-				<div class="main main-raised col-md-12 plain-text">
-					<div class="section col-md-12">
-				        <div class="container col-md-12">
-							<div class="row tim-row">
-				                <h2 class="title text-center display-text red">Special Thanks To</h2>
-				                <br>
-				                <h2 class="text-center">Sponsors</h2>
-				                <legend></legend>
-
-				                <img class="col-sm-2" src="http://www.logodesignlove.com/wp-content/uploads/2015/08/mlb-logo.jpg">
-
-				                <img class="col-sm-2" src="http://www.underconsideration.com/brandnew/archives/dell_2016_logo.png">
-
-				                <img class="col-sm-2" src="http://www.ideachampions.com/weblogs/gg4.jpg">
-
-				                <img class="col-sm-2" src="http://cdn.mos.cms.futurecdn.net/1cef10f6d9aadce6df792e89e77dca04.jpg">
-
-				                <img class="col-sm-2" src="http://i.dailymail.co.uk/i/pix/2012/09/23/article-2207446-04935A490000044D-519_306x319.jpg">
-				                
-				                <img class="col-sm-2" src="http://assets.airbnb.com/press/logos/NBC%20Logo.gif">
-				                
-
-				            </div>
-
-				            <div class="row tim-row">
-				                <h2 class="text-center">With Help From</h2>
-				                <legend></legend>
-				                <div class="row">
-					                <div class="col-md-2 col-md-offset-1"><img src="assets/img/christian.jpg" alt="Circle Image" class="img-circle img-responsive"></div>
-					                <div class="col-md-7">
-					                <p>
-					                	Te impedit qualisque conceptam ius, modo tantas et eam. Has elitr prodesset ex. Ei est affert scripta, mea ex nulla nominavi tractatos. Est in duis ancillae dissentias. Eu pro tantas vidisse eleifend, vel cu consul putant percipitur, in quot dicit neglegentur has.
-					                </p>
-					                <p>
-					                    Te impedit qualisque conceptam ius, modo tantas et eam. Has elitr prodesset ex. Ei est affert scripta, mea ex nulla nominavi tractatos. Est in duis ancillae dissentias. Eu pro tantas vidisse eleifend, vel cu consul putant percipitur, in quot dicit neglegentur has.
-					                </p>
-					                </div>
-					            </div>
-					            <div class="row">
-					                <div class="col-md-7 col-md-offset-1">
-					                <p>
-					                	Te impedit qualisque conceptam ius, modo tantas et eam. Has elitr prodesset ex. Ei est affert scripta, mea ex nulla nominavi tractatos. Est in duis ancillae dissentias. Eu pro tantas vidisse eleifend, vel cu consul putant percipitur, in quot dicit neglegentur has.
-					                </p>
-					                <p>
-					                    Te impedit qualisque conceptam ius, modo tantas et eam. Has elitr prodesset ex. Ei est affert scripta, mea ex nulla nominavi tractatos. Est in duis ancillae dissentias. Eu pro tantas vidisse eleifend, vel cu consul putant percipitur, in quot dicit neglegentur has.
-					                </p>
-					                </div>
-					            
-				                	<div class="col-md-2"><img src="assets/img/christian.jpg" alt="Circle Image" class="img-circle img-responsive"></div>
-				                </div>
-				            </div>
-
-				            
-				            
-				        </div>
-				    </div>
-				</div>
-			</div>
 		</div>
 	</div>
 
-</div>
-<footer class="footer footer-transparent">
-    <div class="container">
-        <nav class="pull-left">
-            <ul>
-				<li>
-					<a href="#">
-						Cancer Society
-					</a>
-				</li>
-				<li>
-					<a href="#">
-					   About Us
-					</a>
-				</li>
-				<li>
-					<a href="#">
-					   Blog
-					</a>
-				</li>
-            </ul>
-        </nav>
-        <div class="social-area pull-right">
-            <a class="btn btn-social btn-twitter btn-just-icon" href="https://twitter.com">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-social btn-facebook btn-just-icon" href="https://www.facebook.com">
-                <i class="fa fa-facebook-square"></i>
-            </a>
-            <a class="btn btn-social btn-google btn-just-icon" href="https://plus.google.com">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </div>
-    </div>
-</footer>
+	<br />
+	<br />
+
+	<div class="people">
+		<div class="container" >
+
+			<div class="row tim-row bottom-row">
+					<div id="deborah" class="col-md-6  col-xs-12 ">
+						<a href="http://www.motif.co.nz/"><img src="assets/img/Aspray_Deborah.jpg" alt="Raised Image" class="img-responsive img-circle img-raised im people-card-img "></a>
+						<div class="card base-card people-card">
+							
+							<br />
+							<a href="http://www.motif.co.nz/"><h4>Deborah Aspray</h4></a>
+							
+
+							<p>Deborah runs a successful commercial photography business from her studio, and specialises in product & lifestyle photography, with a particular passion (& taste!) for food photography.</p>
+							<p>Deborah is a multi-award winning photographer both in NZ & Australia, & in 2006 won the title of NZ Advertising Photographer of the Year.</p>
+							<p>To complement her photographic assignments, Deborah also provides styling services for her own clients, as well as other photographers and TV production companies.</p>
+							<p>In her spare time Deborah also maintains a food blog called ‘The Food Union’, for which she cooks, styles and photographs all the recipes.</p>
+							<p>Deborah has kindly donated her time, expertise and amazing talent to this project. Without her the Cancer Society’s recipe book ‘The Food Connection’ would not have come to fruition and been of the quality that has been produced. </p>
+							<p  class="text-center"><a href="http://www.motif.co.nz/"><b>Website</b></a></p>
+
+						</div>
+					</div>
+					<div id="tony" class="col-md-6  col-xs-12 ">
+						<img src="assets/img/Tony.png" alt="Raised Image" class="img-responsive img-circle img-raised im people-card-img ">
+						<div class="card base-card people-card">
+							
+							<br />
+							
+							<h4>Tony Smith</h4>
+
+							
+							<p>Tony is Head Chef at the Christchurch Club, the oldest club in New Zealand and one of the first of Christchurch’s Heritage buildings to be beautifully restored in 2016.</p>
+							<p>Tony is a very experienced executive chef and author of his own recipe book ‘A River Rules My Kitchen’. Tony is a keen outdoorsman and former executive chef at the Christchurch Crowne Plaza. After working in India and Australia he returned to New Zealand to pursue his twin passions for food and the South Island wilderness.</p>
+							<p>Tony has also generously donated his time, knowledge and skills to make this recipe book come to life. Like Deborah, Tony has made this recipe book become an achievable project for the Cancer Society and without him we would not be able to produce the book we have. </p>
+
+						</div>
+					</div>
+					
+			</div>
+			
+			
+				
+		</div>
+	</div>
+	    
+
+
 
 <!-- Sart Modal -->
 <div class="modal fade menu-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					<i class="material-icons">clear</i>
-				</button>
-				<h4 class="modal-title">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-				</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-simple">Nice Button</button>
-				<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
+			<div class="container">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<h4>Close</h4>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<row>
+						<div class="col-md-4">
+							<a href="#home"><h4>Home</h4></a>
+						</div>
+						<div class="col-md-4">
+							 
+						</div>
+						<div class="col-md-4">
+							<a href="order.html"><h4><b>Order Now</b></h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<br />
+					<br />
+					<row>
+						<div class="col-md-4">
+							<a href="#overview"><h4>Overview</h4></a>
+						</div>
+						<div class="col-md-4">
+							 <a href="#timeline"><h4>Timeline</h4></a>
+						</div>
+						<div class="col-md-4">
+							<a href="#involved"><h4>Get Involved</h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Sample Recipe Chapters</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-starters.html"><h4>Starters & Something Light</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-fish.html"> <h4>Fish & Seafood</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-meat.html"><h4>Meat & Poultry</h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-vege.html"><h4>Vege, Salads & Sides</h4></a>
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-dessert.html"><h4>Desserts & Pudding</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-baking.html"><h4>Baking & Treats </h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-party.html"><h4>Party Food & Drinks</h4></a>
+							</div>
+							<div class="col-md-4">
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Contributors</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="#deborah"><h4>Deborah Aspray</h4></a>
+							</div>
+							<div class="col-md-4">
+								 
+							</div>
+							<div class="col-md-4">
+								<a href="#tony"><h4>Tony Smith</h4></a>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								
+							</div>
+							<div class="col-md-4">
+					                <div class="logo">
+					                    <img src="assets/img/logo.png" >
+					                </div>
+							</div>
+							<div class="col-md-4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -312,6 +426,10 @@
 
 			$(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
 
+		});
+
+		$( ".modal a" ).click(function() {
+		  $('#myModal').modal('toggle');
 		});
 
 </script>

@@ -21,20 +21,15 @@
 	margin-bottom: 200px;
 }
 
-.sponsor-chapter-card {
-	padding: 0;
-}
+
 
 .sponsor {
-
-	margin: 0px!important;
-	width: 80%!important;
+	padding: 0;
+	background-color: white;
+	float:none;
 }
 
-.sponsor.img-responsive{
-	text-align: center;
-	margin: 0 auto!important;
-}
+
 
 .inside-chapter-card h5 {
 	margin-top: 30px;
@@ -51,6 +46,73 @@
 .share-card h5 {
 	margin-top: 25px; 
 }
+.order-card h5 {
+	font-size: 14px!important;
+	text-align: left;
+	font-family: Avenir-Black;
+	padding-left: 40px;
+}
+.order-card {
+	padding: 70px;
+	font-size: 2em;
+}
+.order-card a {
+	color: black!important;
+}
+.order-card li a{
+	font-size: 1.2em!important;
+}
+.order-card a:hover {
+	color: white!important;
+}
+.btn-full {
+	width: 100%!important;
+	font-size: 0.6em!important;
+}
+.order-card .office {
+	margin-left: 25px;
+}
+
+@media (max-width: 600px){ 
+
+	.order-card {
+		padding: 40px;
+		font-size: 1.5em;
+	}
+
+	.order-card li a{
+		font-size: 0.8em!important;
+	
+	}
+
+	.btn-full {
+		width: 100%!important;
+		font-size: 0.5em!important;
+	}
+
+	
+}
+
+@media (max-width: 400px){ 
+
+	.order-card {
+		padding: 40px;
+		font-size: 1.3em;
+	}
+
+	.order-card li a{
+		font-size: 0.6em!important;
+	
+	}
+
+	.btn-full {
+		width: 100%!important;
+		font-size: 0.4em!important;
+	}
+
+	
+}
+
 
 
 i.fa {
