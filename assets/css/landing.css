@@ -624,12 +624,7 @@ body {
     font-size: 1.5em!important; 
 }
 
-@media (max-width: 700px){
 
-    .chapters h4 {
-        font-size: 1.2em!important; 
-    }
-}
 
 .chapter-card {
     padding-top: 210px;
@@ -650,6 +645,16 @@ body {
     color: black!important;
     margin-bottom: : 10px!important;
     font-size: 1.2em!important;
+}
+
+@media (max-width: 700px){
+
+    .chapters h4 {
+        font-size: 1.2em!important; 
+    }
+    .chapter-card {
+        min-height: 380px!important;
+    }
 }
 
 .people {
