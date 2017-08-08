@@ -144,6 +144,14 @@ i.fa {
 
 }
 
+.fish {
+	background-image: url('../img/Dropbox/CSCB_AkaroaSalmon.jpg');
+}
+
+.vege {
+	background-image: url('../img/Dropbox/CSCB_StaplesRodway.jpg');
+}
+
 @media (max-width: 1200px){ 
 
 	.inside-chapter-card {
@@ -151,4 +159,13 @@ i.fa {
 		margin-top: 400px;
 		margin-bottom: 400px;
 	}
+
+	.fish {
+		background-image: url('../img/Dropbox/CSCB_SalmonMango.jpg');
+	}
+
+	.vege {
+		background-image: url('../img/Dropbox/CSCB_StaplesRodway_mobile.jpg');
+	}
 }
+
