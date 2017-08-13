@@ -152,6 +152,10 @@ i.fa {
 	background-image: url('../img/Dropbox/CSCB_StaplesRodway.jpg');
 }
 
+.start {
+	background-image: url('../img/Dropbox/CSCB_CasinoChapter.jpg');
+}
+
 @media (max-width: 1200px){ 
 
 	.inside-chapter-card {
@@ -166,6 +170,9 @@ i.fa {
 
 	.vege {
 		background-image: url('../img/Dropbox/CSCB_StaplesRodway_mobile.jpg');
+	}
+	.start {
+		background-image: url('../img/Dropbox/CSCB_CasinoChapter_square.jpg');
 	}
 }
 
