@@ -61,15 +61,16 @@
 	text-align: center;
 }
 .order-card h2 {
-	font-size: 62px;
+	font-size: 52px;
 }
 .order-card {
 	width: 100%!important;
 	padding: 70px;
 	font-size: 2em;
+	height: 80vh!important;
 }
 .order-card a {
-	color: black!important;
+	color: black;
 }
 .order-card li a{
 	font-size: 1.2em!important;
@@ -81,8 +82,23 @@
 	width: 100%!important;
 	font-size: 0.6em!important;
 }
+.btn-purchase {
+	background-color: #99CC67;
+	color: white!important;
+	font-size: 0.6em!important;
+}
+.btn-purchase:hover{
+	background-color: #99CC67;
+	color: white!important;
+}
 .order-card .office {
 	margin-left: 25px;
+}
+.gap {
+	margin-top: 100px; 
+}
+li a {
+	color:black!important;
 }
 
 @media (max-width: 600px){ 

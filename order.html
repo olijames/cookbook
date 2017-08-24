@@ -21,7 +21,7 @@
 	<link href="assets/css/text.css" rel="stylesheet" />
 	<link href="assets/css/inside-chapter.css" rel="stylesheet" />
 
-
+	<script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body class="order-page">
@@ -61,7 +61,7 @@
 		<div class="row">
 			<div class="col-md-7 col-xs-12">
 				<div class="card order-card col-md-12 plain-text fold-down-four">
-					<div class="pay-section section col-md-12 ">
+					<div class="pay-section col-md-12 ">
 							<div class="row">
 				                <h3>Order Online</h3>
 				                <legend></legend>
@@ -73,7 +73,7 @@
 														<div class="form-group">
 															<h5>Your Order</h5>
 															<div class="dropdown">
-															  <button id="copiesbutton" class="btn btn-primary btn-full dropdown-toggle" type="button" data-toggle="dropdown">Number of Copies &nbsp<span class="caret"></span></button>
+															  <button id="copiesbutton" class="btn btn-purchase btn-full dropdown-toggle" type="button" data-toggle="dropdown">Number of Copies &nbsp<span class="caret"></span></button>
 															  <ul class="dropdown-menu">
 															    <li><a onClick="copies(1)">One</a></li>
 															    <li><a onClick="copies(2)">Two</a></li>
@@ -126,20 +126,20 @@
 													<div class="checkbox">
 														<label>
 															<input id="delivery1" type="checkbox" name="optionsCheckboxes"  class="check">
-															Courier - Canterbury &nbsp<b>$5</b>
+															Courier - Canterbury &nbsp<b>$3.30</b>
 														</label>
 													</div>
 													<div class="checkbox">
 														<label>
 															<input id="delivery2" type="checkbox" name="optionsCheckboxes"  class="check">
-															Courier - Anywhere in New Zealand &nbsp<b>$10</b>
+															Courier - Anywhere in New Zealand &nbsp<b>$6.85</b>
 														</label>
 													</div>
 
 
 												
 												</div>
-												<a onClick="order()" class="col-xs-12 btn btn-primary">Next</a>
+												<a onClick="order()" class="col-xs-12 btn btn-purchase gap">Next</a>
 											</form>
 
 										
@@ -190,42 +190,30 @@
 													</div>
 
 												</div>
-												<a onClick="details()" class="col-xs-12 btn btn-primary">Next</a>
+												<a onClick="details()" class="col-xs-12 btn btn-purchase">Next</a>
 											</form>
 
 											
 
-											<form id="payment" class="hide">
-												<h4 class="text-center ">Payment</h4>
-												<div class="row tim-row">
-													<div class="col-sm-8">
-														<div class="form-group label-floating">
-																<label class="control-label">Credit Card Number</label>
-																<input type="email" class="form-control">
-														</div>
-													</div>
-													<div class="col-sm-4">
-														<div class="form-group label-floating">
-																<label class="control-label">CSV</label>
-																<input type="email" class="form-control">
-														</div>
-													</div>
-													<div class="col-sm-8">
-														<div class="form-group label-floating">
-																<label class="control-label">Name on Card</label>
-																<input type="email" class="form-control">
-														</div>
-													</div>
-													<div class="col-sm-4">
-														<div class="form-group label-floating">
-																<label class="control-label">Card Expiary Date</label>
-																<input type="email" class="form-control">
-														</div>
-													</div>
-												</div>
+											<div id="payment" class="hide gap">
+												<form action="/charge" method="post" id="payment-form">
+												  <div class="form-row">
+												    <label for="card-element">
+												      Credit or debit card
+												    </label>
+												    <div id="card-element">
+												      <!-- a Stripe Element will be inserted here. -->
+												    </div>
 
-												<a onClick="submit()" class="col-xs-12 btn btn-primary">Next</a>
-											</form>
+												    <!-- Used to display Element errors -->
+												    <div id="card-errors" role="alert"></div>
+												  </div>
+
+												  <button  class="col-xs-12 btn btn-purchase gap">Submit Payment</button>
+												</form>
+
+												
+											</div>
 
 											<div class="loader hide col-xs-12 center-block"></div>
 
@@ -400,9 +388,15 @@
 	var copyPrice = 0;
 	var deliveryPrice = 0;
 	var priceEstimate = 0;
-	var copynumber = 0
+	var copynumber = 0;
 
 	var delivery = "New Zealand";
+
+	var email = "";
+	var name = "";
+	var purchase = "";
+	var delivery = "";
+	var address = "";
 
 		$().ready(function(){
 
@@ -431,7 +425,7 @@
 			        	deliveryPrice = 0;
 
 			        } else {
-
+			        	$(".office").addClass("hide");
 			        	$("#office").attr('checked', false);
 			        	$("#office1").attr('checked', false);
 			        	$("#office2").attr('checked', false);
@@ -439,10 +433,10 @@
 
 			        	if(this.id === 'delivery1'){
 			        		$("#delivery2").attr('checked', false);
-			        		deliveryPrice = 5;
+			        		deliveryPrice = 3.30;
 			        	} else {
 			        		$("#delivery1").attr('checked', false);
-			        		deliveryPrice = 10;
+			        		deliveryPrice = 6.85;
 			        	}
 
 			        }
@@ -451,6 +445,7 @@
 			    
 
 		    } else {
+		    	$(".office").addClass("hide");
 		        deliveryPrice = 0;
 		        updatePrice();
 		    }
@@ -463,21 +458,25 @@
 			if(number === 6) { contact(); }
 
 			if(number === 1) {
-				$("#copiesbutton").html("1  Copy");
+				$("#copiesbutton").html("1  Copy &nbsp<span class='caret'></span>");
 			} else {
-				$("#copiesbutton").html( number + "  Copies");
+				$("#copiesbutton").html( number + "  Copies &nbsp<span class='caret'></span>");
 			}
 
 			copynumber = number;
 
-			copyPrice = number * 39;
+			copyPrice = (number * 39.99);
 
 			updatePrice();
 
 		}
 
 		function updatePrice() {
+			//copyPrice = copyPrice.toFixed(2);
+			//deliveryPrice = deliveryPrice.toFixed(2);
+
 			priceEstimate = (copyPrice + deliveryPrice);
+			priceEstimate = priceEstimate.toFixed(2);
 			$( "#priceEstimate" ).html("$"+priceEstimate);
 		}
 
@@ -515,6 +514,52 @@
 
 			            });
 		}
+
+		function stripesend( stripetoken ) {
+			submit();
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"charge":{"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address }} )
+			              .done(function( data ) { console.log(data) })
+			              .fail(function(data) {
+							    alert('Error: ' + response.responseText);
+							});
+		}
+
+		var stripe = Stripe('pk_test_SUeNFNj6V61JZVrnFQi6Fb41');
+		var elements = stripe.elements();
+
+		// Custom styling can be passed to options when creating an Element.
+		var style = {
+		  base: {
+		    // Add your base input styles here. For example:
+		    fontSize: '16px',
+		    lineHeight: '24px'
+		  }
+		};
+
+		// Create an instance of the card Element
+		var card = elements.create('card', {style: style});
+
+		// Add an instance of the card Element into the `card-element` <div>
+		card.mount('#card-element');
+
+		var form = document.getElementById('payment-form');
+		form.addEventListener('submit', function(event) {
+		  event.preventDefault();
+
+		  stripe.createToken(card).then(function(result) {
+		    if (result.error) {
+		      // Inform the user if there was an error
+		      var errorElement = document.getElementById('card-errors');
+		      errorElement.textContent = result.error.message;
+		    } else {
+		      // Send the token to your server
+		      console.log(result.token);
+		      stripesend(result.token);
+		    }
+		  });
+		});
+
+		
 
 </script>
 </html>
