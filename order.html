@@ -80,7 +80,7 @@
 															    <li><a onClick="copies(3)">Three</a></li>
 															    <li><a onClick="copies(4)">Four</a></li>
 															    <li><a onClick="copies(5)">Five</a></li>
-															    <li><a onClick="copies(6)">Five +</a></li>
+															    <li><a onClick="copies(6)">Six +</a></li>
 															  </ul>
 															</div>
 														</div>
@@ -263,7 +263,7 @@
 														<br />
 														<p class="text-center">or</p>
 														<br />
-														<p class="text-center">64 3 379 5835</p>
+														<p class="text-center">+64 3 379 5835</p>
 												</div>
 
 												
@@ -618,7 +618,15 @@
 			              	
 			              	
 
-			            });
+			            })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    console.log('Error: ' + response.responseText);
+							});
 		}
 
 		function senddetails() {
@@ -633,7 +641,15 @@
 			              	
 			              	
 
-			            });
+			            })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    console.log('Error: ' + response.responseText);
+							});
 		}
 
 		function start() {
@@ -670,7 +686,7 @@
 			// console.log( token);
 			// console.log( address);
 
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token} )
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email} )
 			              .done(function( data ) { pass() })
 			              .fail(function(response) {
 
