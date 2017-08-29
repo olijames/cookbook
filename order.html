@@ -465,7 +465,6 @@
 			
 			
 		    if($(this).is(':checked')) {
-		        console.log(this.id);
 
 		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4') {
 		        	if(this.id === 'office1'){delivery = 1;}
@@ -619,7 +618,6 @@
 		}
 
 		function sendorder() {
-			console.log(token);
 			$.post( "https://desolate-lowlands-92183.herokuapp.com/recordorder.json", {"itemcode": 1 , "amount": purchase, "deliverycode": delivery, "token" : token } )
 			              .done(function( data ) {
 			              	
@@ -632,7 +630,7 @@
 
 			              		$(".loader").addClass("hide");
 			              		$(".error-section").removeClass("hide");
-							    console.log('Error: ' + response.responseText);
+							    
 							});
 		}
 
@@ -655,7 +653,7 @@
 
 			              		$(".loader").addClass("hide");
 			              		$(".error-section").removeClass("hide");
-							    console.log('Error: ' + response.responseText);
+							    
 							});
 		}
 
@@ -664,7 +662,7 @@
 			              .done(function( data ) {
 			              	
 			              	token = data.token;
-			              	console.log(token);
+			              	
 
 			              })
 			              .fail(function(response) {
@@ -673,7 +671,7 @@
 
 			              		$(".loader").addClass("hide");
 			              		$(".error-section").removeClass("hide");
-							    console.log('Error: ' + response.responseText);
+							    
 							});
 		}
 
@@ -685,13 +683,6 @@
 
 		function stripesend( stripetoken ) {
 			submit();
-			
-			// console.log( stripetoken);
-			// console.log( name);
-			// console.log( delivery);
-			// console.log( delivery);
-			// console.log( token);
-			// console.log( address);
 
 			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email} )
 			              .done(function( data ) { pass() })
@@ -701,7 +692,7 @@
 
 			              		$(".loader").addClass("hide");
 			              		$(".error-section").removeClass("hide");
-							    console.log('Error: ' + response.responseText);
+							   
 							});
 		}
 
@@ -734,7 +725,7 @@
 		      errorElement.textContent = result.error.message;
 		    } else {
 		      // Send the token to your server
-		      //console.log(result.token.id);
+		      
 		      stripesend(result.token.id);
 		    }
 		  });
