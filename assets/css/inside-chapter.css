@@ -67,7 +67,7 @@
 	width: 100%!important;
 	padding: 70px;
 	font-size: 2em;
-	height: 80vh!important;
+	height: 90vh!important;
 }
 .order-card a {
 	color: black;
@@ -97,8 +97,29 @@
 .gap {
 	margin-top: 100px; 
 }
+
+form a:hover, form a:focus {
+	cursor: pointer;
+    background-color: #99CC67!important;
+}
+form p {
+	font-size: 26px;
+}
+
 li a {
 	color:black!important;
+}
+.shop-page {
+	background-image: url('../img/Dropbox/CSCB_ChilliChicken.jpg');
+}
+.form-group .help-block {
+    position: absolute;
+    display: inline;
+}
+h5.error {
+	color: red!important;
+	font-weight: 700;
+	font-size: 20px!important;
 }
 
 @media (max-width: 600px){ 

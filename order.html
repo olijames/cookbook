@@ -24,7 +24,7 @@
 	<script src="https://js.stripe.com/v3/"></script>
 </head>
 
-<body class="order-page">
+<body class="shop-page full-page-img">
 
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
   <div class="container">
@@ -63,15 +63,15 @@
 				<div class="card order-card col-md-12 plain-text fold-down-four">
 					<div class="pay-section col-md-12 ">
 							<div class="row">
-				                <h3>Order Online</h3>
+				                <h3>FOOD CONNECTION</h3>
 				                <legend></legend>
 				                			
-				                			<form id="order">
+				                			<form id="order" >
 				                				<h4 class="text-center ">Your Order</h4>
 				                				<div class="row">
 					                				<div class="col-xs-6">
 														<div class="form-group">
-															<h5>Your Order</h5>
+															<h5 id="purchase-amount">Your Order</h5>
 															<div class="dropdown">
 															  <button id="copiesbutton" class="btn btn-purchase btn-full dropdown-toggle" type="button" data-toggle="dropdown">Number of Copies &nbsp<span class="caret"></span></button>
 															  <ul class="dropdown-menu">
@@ -95,7 +95,7 @@
 												<div class="col-xs-6"></div>
 												<br />
 												<br />
-												<h5>Shipping Method </h5>
+												<h5 id="shiping-method">Shipping Method </h5>
 												<div class="col-xs-12">
 													<div class="checkbox">
 														<label>
@@ -143,57 +143,81 @@
 											</form>
 
 										
-											<form id="details" class="hide">
+											<form id="details" class="hide" data-toggle="validator" role="form" data-disable="true">
 											<h4 class="text-center ">Details</h4>
 												<div class="row tim-row">
 													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">First Name</label>
-															<input id="first" type="text" class="form-control">
+															<input id="first" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">Last Name</label>
-															<input id="last" type="text" class="form-control">
+															<input id="last" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Email Address</label>
-															<input id="email" type="text" class="form-control">
+															<input id="email" type="email" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Street Address</label>
-															<input id="street" type="text" class="form-control">
+															<input id="street" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-12">
 														<div class="form-group label-floating">
 															<label class="control-label">Suburb</label>
-															<input id="suburb" type="text" class="form-control">
+															<input id="suburb" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-9">
 														<div class="form-group label-floating">
 															<label class="control-label">City</label>
-															<input id="city" type="text" class="form-control">
+															<input id="city" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 													<div class="col-sm-3">
 														<div class="form-group label-floating">
 															<label class="control-label">Postcode</label>
-															<input id="postcode" type="text" class="form-control">
+															<input id="postcode" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
 														</div>
 													</div>
 
 												</div>
-												<a onClick="details()" class="col-xs-12 btn btn-purchase">Next</a>
+												<a onClick="details()" class="col-xs-12 btn btn-purchase" type="submit">Next</a>
 											</form>
 
-											
+											<div class="error-section hide col-xs-10 col-xs-offset-1 ">
+												<h4 class="text-center ">Sorry something went wrong</h4>
+												<p class="text-center " id="errormessage"></p>
+											</div>
+
+											<div class="pass-section hide col-xs-10 col-xs-offset-1 ">
+												<h4 class="text-center ">Thank You</h4>
+												<h4 class="text-center ">Your Order has been processed, you should recieve an email reciept shortly.</h4>
+												<h4 class="text-center ">Your Order Token Is:</h4>
+												<p class="text-center " id="tokenmessage"></p>
+											</div>
 
 											<div id="payment" class="hide gap">
 												<form action="/charge" method="post" id="payment-form">
@@ -220,19 +244,28 @@
 											<form id="contact" class="hide">
 												<h4 class="text-center ">Orders of more than 5</h4>
 												<div class="row tim-row">
-													<p>Please contact the Cancer Society directly for any orders of more than 5.</p>
+													<div class="col-xs-10 col-xs-offset-1">
+														<p class="text-center">Please contact the Cancer Society directly for any orders of more than 5.</p>
+														<br />
+														<p class="text-center" href="cookbook@cwc.org.nz">cookbook@cancercwc.org.nz</p>
+														<br />
+														<p class="text-center">or</p>
+														<br />
+														<p class="text-center">64 3 379 5835</p>
 												</div>
 
 												
 											</form>
-				                
 
+											
+				                
+											</div>
 				            </div>
 				    </div>
 				</div>
 			</div>
 
-			<div class="col-md-5  col-xs-12 fold-down-four">
+			<div class="col-md-5 col-xs-12 fold-down-four">
 						<img src="assets/img/Dropbox/cover.jpg" alt="Raised Image" class="img-responsive img-raised im order-card-img ">
 						<div class="card base-card people-card">
 							
@@ -383,6 +416,10 @@
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" type="text/javascript"></script>
+
+	
+
 	<script>
 
 	var copyPrice = 0;
@@ -394,9 +431,10 @@
 
 	var email = "";
 	var name = "";
-	var purchase = "";
-	var delivery = "";
+	var purchase = 0;
+	var delivery = 0;
 	var address = "";
+	var token = "";
 
 		$().ready(function(){
 
@@ -411,7 +449,11 @@
 		        console.log(this.id);
 
 		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3') {
-
+		        	if(this.id === 'office1'){delivery = 1;}
+		        	if(this.id === 'office2'){delivery = 2;}
+		        	if(this.id === 'office3'){delivery = 3;}
+		        	$("#delivery1").attr('checked', false);
+			        $("#delivery2").attr('checked', false);
 		        } else {
 
 
@@ -419,8 +461,8 @@
 			        if(this.id === 'office' ) {
 			        	
 			        	$(".office").removeClass("hide");
+			        	$("#delivery1").attr('checked', false);
 			        	$("#delivery2").attr('checked', false);
-			        	$("#delivery3").attr('checked', false);
 
 			        	deliveryPrice = 0;
 
@@ -434,9 +476,11 @@
 			        	if(this.id === 'delivery1'){
 			        		$("#delivery2").attr('checked', false);
 			        		deliveryPrice = 3.30;
+			        		delivery = 4;
 			        	} else {
 			        		$("#delivery1").attr('checked', false);
 			        		deliveryPrice = 6.85;
+			        		delivery = 5;
 			        	}
 
 			        }
@@ -455,13 +499,16 @@
 
 			copyPrice = 0;
 			
-			if(number === 6) { contact(); }
+			if(number === 6) { contact(); return null;}
 
 			if(number === 1) {
 				$("#copiesbutton").html("1  Copy &nbsp<span class='caret'></span>");
 			} else {
 				$("#copiesbutton").html( number + "  Copies &nbsp<span class='caret'></span>");
 			}
+
+			
+			purchase = number;
 
 			copynumber = number;
 
@@ -481,13 +528,38 @@
 		}
 
 		function order() {
-			$("#order").addClass("hide");
-			$("#details").removeClass("hide");
+
+			if(purchase > 0 && purchase < 6) {
+				if(delivery > 0 && delivery < 6) {
+
+					sendorder();
+					$("#order").addClass("hide");
+					$("#details").removeClass("hide");
+				} else {
+					$("#shiping-method").addClass("error");
+				}
+			} else {
+				$("#purchase-amount").addClass("error");
+			}
 		}
 
 		function details() {
-			$("#details").addClass("hide");
-			$("#payment").removeClass("hide");
+
+			
+
+			$('#details').validator('validate');
+
+
+			if( $('#details').validator('validate').has('.has-error').length === 0 ){
+				senddetails();
+				$("#details").addClass("hide");
+				$("#payment").removeClass("hide");
+			  	
+			} else {
+				
+			}
+
+			
 		}
 
 		function submit() {
@@ -503,24 +575,86 @@
 
 		function send() {
 
-			console.log($("#first").val());
+			
 
 			var detail = copynumber + " " + deliveryPrice + " " + $("#first").val() + " " + $("#last").val() + " " + $("#email").val() + " " + $("#street").val() + " " + $("#suburb").val() + " " + $("#city").val() + " " + $("#postcode").val() + " ";
 
 			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": "cook" , "plan":5, "content": detail }} )
 			              .done(function( data ) {
-			              	console.log(data);
+			              	
 			              	
 
 			            });
 		}
 
+		function sendorder() {
+			console.log(token);
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recordorder.json", {"itemcode": 1 , "amount": purchase, "deliverycode": delivery, "token" : token } )
+			              .done(function( data ) {
+			              	
+			              	
+
+			            });
+		}
+
+		function senddetails() {
+
+			email = $("#email").val();
+			name =  $("#first").val() + " " + $("#last").val();
+
+			address = $("#street").val()+ " " +$("#suburb").val() + " " + $("#city").val()+ " " + $("#postcode").val();
+
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#first").val() , "lname": $("#last").val(), "email": $("#email").val(), "street": $("#street").val(), "suburb": $("#suburb").val(), "city": $("#city").val(), "postcode": $("#postcode").val(), "token" : token } )
+			              .done(function( data ) {
+			              	
+			              	
+
+			            });
+		}
+
+		function start() {
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "test" , "location":"nz" } )
+			              .done(function( data ) {
+			              	
+			              	token = data.token;
+			              	console.log(token);
+
+			              })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    console.log('Error: ' + response.responseText);
+							});
+		}
+
+		function pass() {
+			$("#tokenmessage").html( '#: ' + token.substring(0, 6) );
+			$(".loader").addClass("hide");
+			$(".pass-section").removeClass("hide");
+		}
+
 		function stripesend( stripetoken ) {
 			submit();
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"charge":{"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address }} )
-			              .done(function( data ) { console.log(data) })
-			              .fail(function(data) {
-							    alert('Error: ' + response.responseText);
+			
+			// console.log( stripetoken);
+			// console.log( name);
+			// console.log( delivery);
+			// console.log( delivery);
+			// console.log( token);
+			// console.log( address);
+
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token} )
+			              .done(function( data ) { pass() })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + response.responseText );
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    console.log('Error: ' + response.responseText);
 							});
 		}
 
@@ -553,13 +687,13 @@
 		      errorElement.textContent = result.error.message;
 		    } else {
 		      // Send the token to your server
-		      console.log(result.token);
-		      stripesend(result.token);
+		      //console.log(result.token.id);
+		      stripesend(result.token.id);
 		    }
 		  });
 		});
 
-		
+		start();
 
 </script>
 </html>
