@@ -113,26 +113,38 @@
 														<div class="checkbox">
 															<label>
 																<input id="office2" type="checkbox" name="optionsCheckboxes"  class="check">
-																Westcoast &nbsp<b>Free</b>
+																Ashburton &nbsp<b>Free</b>
 															</label>
 														</div>
 														<div class="checkbox">
 															<label>
 																<input id="office3" type="checkbox" name="optionsCheckboxes"  class="check">
-																Ashburton &nbsp<b>Free</b>
+																Timaru &nbsp<b>Free</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office4" type="checkbox" name="optionsCheckboxes"  class="check">
+																Westcoast &nbsp<b>Free</b>
 															</label>
 														</div>
 													</div>
 													<div class="checkbox">
 														<label>
 															<input id="delivery1" type="checkbox" name="optionsCheckboxes"  class="check">
-															Courier - Canterbury &nbsp<b>$3.30</b>
+															Courier - Local Christchurch Metro Area &nbsp<b>$3.30</b>
 														</label>
 													</div>
 													<div class="checkbox">
 														<label>
 															<input id="delivery2" type="checkbox" name="optionsCheckboxes"  class="check">
-															Courier - Anywhere in New Zealand &nbsp<b>$6.85</b>
+															Courier - National Delivery &nbsp<b>$6.85</b>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery3" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - Rural Delivery &nbsp<b>$12.45</b>
 														</label>
 													</div>
 
@@ -448,12 +460,14 @@
 		    if($(this).is(':checked')) {
 		        console.log(this.id);
 
-		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3') {
+		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4') {
 		        	if(this.id === 'office1'){delivery = 1;}
 		        	if(this.id === 'office2'){delivery = 2;}
 		        	if(this.id === 'office3'){delivery = 3;}
+		        	if(this.id === 'office4'){delivery = 6;}
 		        	$("#delivery1").attr('checked', false);
 			        $("#delivery2").attr('checked', false);
+			        $("#delivery3").attr('checked', false);
 		        } else {
 
 
@@ -463,6 +477,7 @@
 			        	$(".office").removeClass("hide");
 			        	$("#delivery1").attr('checked', false);
 			        	$("#delivery2").attr('checked', false);
+			        	$("#delivery3").attr('checked', false);
 
 			        	deliveryPrice = 0;
 
@@ -475,12 +490,21 @@
 
 			        	if(this.id === 'delivery1'){
 			        		$("#delivery2").attr('checked', false);
+			        		$("#delivery3").attr('checked', false);
 			        		deliveryPrice = 3.30;
 			        		delivery = 4;
 			        	} else {
-			        		$("#delivery1").attr('checked', false);
-			        		deliveryPrice = 6.85;
-			        		delivery = 5;
+			        		if(this.id === 'delivery2'){
+				        		$("#delivery1").attr('checked', false);
+				        		$("#delivery3").attr('checked', false);
+				        		deliveryPrice = 6.85;
+				        		delivery = 5;
+				        	} else {
+				        		$("#delivery1").attr('checked', false);
+				        		$("#delivery2").attr('checked', false);
+				        		deliveryPrice = 12.45;
+				        		delivery = 7;
+				        	}
 			        	}
 
 			        }
@@ -530,7 +554,7 @@
 		function order() {
 
 			if(purchase > 0 && purchase < 6) {
-				if(delivery > 0 && delivery < 6) {
+				if(delivery > 0 && delivery < 8) {
 
 					sendorder();
 					$("#order").addClass("hide");
