@@ -726,7 +726,7 @@
 		      errorElement.textContent = result.error.message;
 		    } else {
 		      // Send the token to your server
-		      
+		      console.log(result.token.id);
 		      stripesend(result.token.id);
 		    }
 		  });
