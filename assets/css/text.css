@@ -3,7 +3,7 @@
 p{font-family:'Avenir-Medium', serif;font-weight:400;font-size:1.2em;line-height:1.1;margin-bottom:32px;padding-top:5px;}
 p.with-back-text{z-index:1;}
 h6{font-size:220px;text-align:center;opacity:0.05;z-index:0;line-height:0px;margin-top:160px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
-h6:hover, h5:hover, h4:hover{color:#99CC67!important;}
+
 h1, h2, h3, h5, h4{font-family:"Brandon";font-weight:400;font-style:normal;text-align:center;}
 .recipe h3{font-size:2.6em;line-height:0.5em;}
 .recipe h5{font-size:1em;line-height:0.5em;font-family:'Avenir-Black';text-align:center;}
