@@ -76,7 +76,7 @@
 				                			<form id="order" >
 				                				<h4 class="text-center ">Your Order</h4>
 				                				<div class="row">
-					                				<div class="col-xs-6">
+					                				<div class="col-xs-12 col-sm-6">
 														<div class="form-group">
 															<h5 id="purchase-amount">Your Order</h5>
 															<div class="dropdown">
@@ -92,7 +92,7 @@
 															</div>
 														</div>
 													</div>
-													<div class="col-xs-6">
+													<div class="col-xs-12 col-sm-6">
 														<div class="form-group">
 															<h2 id="priceEstimate">$0</h2>
 															
@@ -159,12 +159,15 @@
 												
 												</div>
 												<a onClick="order()" class="col-xs-12 btn btn-purchase gap">Next</a>
+
 											</form>
 
 										
 											<form id="details" class="hide" data-toggle="validator" role="form" data-disable="true">
 											<h4 class="text-center ">Details</h4>
+												
 												<div class="row tim-row">
+
 													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">First Name</label>
@@ -224,11 +227,14 @@
 
 												</div>
 												<a onClick="details()" class="col-xs-12 btn btn-purchase" type="submit">Next</a>
+												<br>
+												<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
 											</form>
 
 											<div class="error-section hide col-xs-10 col-xs-offset-1 ">
 												<h4 class="text-center ">Sorry something went wrong</h4>
 												<p class="text-center " id="errormessage"></p>
+												<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
 											</div>
 
 											<div class="pass-section hide col-xs-10 col-xs-offset-1 ">
@@ -252,8 +258,10 @@
 												    <div id="card-errors" role="alert"></div>
 												  </div>
 
-												  <button  class="col-xs-12 btn btn-purchase gap">Submit Payment</button>
+												  <button class="col-xs-12 btn btn-purchase gap">Submit Payment</button>
 												</form>
+												<br>
+												<a onClick="order()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
 
 												
 											</div>
@@ -271,6 +279,7 @@
 														<p class="text-center">or</p>
 														<br />
 														<p class="text-center">+64 3 379 5835</p>
+														<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
 												</div>
 
 												
@@ -286,14 +295,7 @@
 
 			<div class="col-md-5 col-xs-12 fold-down-four">
 						<img src="assets/img/Dropbox/cover.jpg" alt="Raised Image" class="img-responsive img-raised im order-card-img ">
-						<div class="card base-card people-card">
-							
-							<br />
-							
-							<h4>Order Online</h4>
-					                <hr />
-
-						</div>
+						
 			</div>
 			
 		</div>
@@ -563,7 +565,7 @@
 				if(delivery > 0 && delivery < 8) {
 
 					sendorder();
-					$("#order").addClass("hide");
+					hideall();
 					$("#details").removeClass("hide");
 				} else {
 					$("#shiping-method").addClass("error");
@@ -582,7 +584,7 @@
 
 			if( $('#details').validator('validate').has('.has-error').length === 0 ){
 				senddetails();
-				$("#details").addClass("hide");
+				hideall();
 				$("#payment").removeClass("hide");
 			  	
 			} else {
@@ -593,28 +595,27 @@
 		}
 
 		function submit() {
-			$("#payment").addClass("hide");
+			hideall();
 			$(".loader").removeClass("hide");
-			send();
 		}
 
 		function contact() {
-			$("#order").addClass("hide");
+			hideall();
 			$("#contact").removeClass("hide");
 		}
 
-		function send() {
+		function hideall() {
 
-			
+			$("#order").addClass("hide");
+			$("#payment").addClass("hide");
+			$("#details").addClass("hide");
+			$("#contact").addClass("hide");
+		}
 
-			var detail = copynumber + " " + deliveryPrice + " " + $("#first").val() + " " + $("#last").val() + " " + $("#email").val() + " " + $("#street").val() + " " + $("#suburb").val() + " " + $("#city").val() + " " + $("#postcode").val() + " ";
-
-			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": "cook" , "plan":5, "content": detail }} )
-			              .done(function( data ) {
-			              	
-			              	
-
-			            });
+		function restart() {
+			start();
+			 hideall();
+			 $("#order").removeClass("hide");
 		}
 
 		function sendorder() {
