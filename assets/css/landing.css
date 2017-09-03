@@ -745,3 +745,20 @@ body {
 .pay-section {
     min-width: 100%!important;
 }
+.card-action {
+    margin-top: 100px;
+    background-color: #99CC67!important;
+}
+.card-price {
+    padding:none!important;
+    background-color: #99CC67!important;
+}
+.card-price h5 {
+    color:white!important;
+    font-weight:300!important;
+    margin-top: -30px!important;
+    margin-bottom: -10px!important;
+}
+a .card-action.card-raised:hover {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.86), 0 4px 25px 0px rgba(0, 0, 0, 0.32), 0 8px 10px -5px rgba(0, 0, 0, 0.4)!important;
+}

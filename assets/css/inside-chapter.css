@@ -79,6 +79,9 @@
 .order-card a:hover {
 	color: white!important;
 }
+.order-card span {
+	font-size: 12px;
+}
 .btn-full {
 	width: 100%!important;
 	font-size: 0.6em!important;
@@ -122,7 +125,7 @@ li a {
 	color:black!important;
 }
 .shop-page {
-	background-image: url('../img/Dropbox/CSCB_MisoBeef.jpg');
+	background-image: url('../img/Dropbox/CSCB_LentuneChicken.jpg');
 }
 .form-group .help-block {
     position: absolute;
