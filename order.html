@@ -194,10 +194,18 @@
 															<br />
 														</div>
 													</div>
-													<div class="col-sm-12">
+													<div class="col-sm-6">
 														<div class="form-group label-floating">
 															<label class="control-label">Email Address</label>
 															<input id="email" type="email" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">Phone Number</label>
+															<input id="phone" type="number" class="form-control" required>
 															<div class="help-block with-errors"></div>
 															<br />
 														</div>
@@ -653,7 +661,7 @@
 
 			address = $("#street").val()+ " " +$("#suburb").val() + " " + $("#city").val()+ " " + $("#postcode").val();
 
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#first").val() , "lname": $("#last").val(), "email": $("#email").val(), "street": $("#street").val(), "suburb": $("#suburb").val(), "city": $("#city").val(), "postcode": $("#postcode").val(), "token" : token } )
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#first").val() , "lname": $("#last").val(), "email": $("#email").val(), "street": $("#street").val(), "suburb": $("#suburb").val(), "city": $("#city").val(), "postcode": $("#postcode").val(), "note": $("#phone").val(), "token" : token } )
 			              .done(function( data ) {
 			              	
 			              	
