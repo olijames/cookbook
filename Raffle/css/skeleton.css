@@ -42,14 +42,14 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-@media (min-width: 400px) {
+@media (min-width: 300px) {
   .container {
     width: 85%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
-@media (min-width: 550px) {
+@media (min-width: 350px) {
   .container {
     width: 80%; }
   .column,
@@ -401,18 +401,35 @@ on small devices, paste the mobile query code up in the buttons section and styl
 there.
 */
 
-
+.big {
+  display: none;
+}
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 400px) {
+
+
+
+}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+
+  
+}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+
+  .small {
+    display: none;
+  }
+  .big {
+    display: inline!important;
+  }
+}
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
