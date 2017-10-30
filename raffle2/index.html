@@ -27,6 +27,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/ico" href="images/favicon.ico">
 
+
+
 </head>
 <body>
 
@@ -71,7 +73,7 @@
             <div class="row">
               <div class="six columns">
                 <label for="tickets">Number of Tickets</label>
-                <input class="u-full-width" type="number" placeholder="1" id="tickets">
+                <input class="u-full-width" type="number" value="1" id="tickets">
               </div>
               <div class="six columns">
                 <label for="tickets">Price</label>
@@ -135,6 +137,17 @@
 
 
         </div>
+                    <div class="error-section hide  ">
+                        <h4 class="text-center ">Sorry something went wrong</h4>
+                        <p class="text-center " id="errormessage"></p>
+                      </div>
+
+                      <div class="pass-section hide  ">
+                        <h4 class="text-center ">Thank You</h4>
+                        <h4 class="text-center ">Your Order has been processed, you should recieve an email with your ticket numbers shortly.</h4>
+                        <h4 class="text-center ">Your Order Token Is:</h4>
+                        <h1 class="center " id="tokenmessage"></h1>
+                      </div>
                       <div class="loader hide spacer">
                         <h2 class="center">Sending ....</h2>
                       </div>
@@ -195,6 +208,7 @@
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
@@ -249,7 +263,7 @@
 
       address = $("#Street").val()+ " " +$("#Suburb").val() + " " + $("#City").val();
 
-      $.post( "https://mighty-shelf-11601.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": " ", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": $("#goals").val() + " " + $("#classes").val(), "token" : token } )
+      $.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": "Raffle", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": $("#goals").val() + " " + $("#classes").val(), "token" : token } )
                   .done(function( data ) {
                       
                       $(".loader").addClass("hide");
@@ -267,7 +281,7 @@
     }
 
   function start() {
-      $.post( "https://mighty-shelf-11601.herokuapp.com/beginsale.json", {"ip": "concession" , "location":"nz" } )
+      $.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "raffle" , "location":"nz" } )
                     .done(function( data ) {
                       
                       token = data.token;
@@ -291,7 +305,7 @@
 
        loader();
       
-            $.post( "https://mighty-shelf-11601.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": "1", "delivery": "", "address": address, "token":token, "email":email} )
+            $.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/raffle.json", {"stripetoken": stripetoken , "name": name, "purchase": $("#tickets").val(), "delivery": "", "address": address, "token":token, "email":email} )
                     .done(function( data ) { console.log( data ); pass(); })
                     .fail(function(data) {
                         console.log(data)
@@ -305,7 +319,7 @@
               });
     }
 
-    var stripe = Stripe('');
+    var stripe = Stripe('pk_live_YP8aPjLeMDjvFy2jTcyTNdHw');
     var elements = stripe.elements();
 
     // Custom styling can be passed to options when creating an Element.
@@ -342,7 +356,7 @@
     function pass() {
       $("#tokenmessage").html( '#: ' + token.substring(0, 6) );
       $("#payment").addClass("hide");
-      $("#loader").addClass("hide");
+      $(".loader").addClass("hide");
       $(".pass-section").removeClass("hide");
     }
 
