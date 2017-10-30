@@ -263,7 +263,7 @@
 
       address = $("#Street").val()+ " " +$("#Suburb").val() + " " + $("#City").val();
 
-      $.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": "Raffle", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": $("#goals").val() + " " + $("#classes").val(), "token" : token } )
+      $.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": "Raffle", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": "Raffle", "token" : token } )
                   .done(function( data ) {
                       
                       $(".loader").addClass("hide");
