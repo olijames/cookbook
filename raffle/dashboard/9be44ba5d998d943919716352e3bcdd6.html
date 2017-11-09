@@ -661,6 +661,8 @@
             $.get( "https://desolate-lowlands-92183.herokuapp.com/ticket")
                       .done(function( data ) {
 
+                        data.sort(function(a.id, b.id){return b.id - a.id});
+
                             ticket = data;
 
                             ticketTable()
