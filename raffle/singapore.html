@@ -154,7 +154,8 @@
 
                       <div class="pass-section hide  ">
                         <h4 class="text-center ">Thank You</h4>
-                        <h4 class="text-center ">Your Order has been processed, you should recieve an email with your ticket numbers shortly.</h4>
+                        <h4 class="text-center ">Your Order has been processed, you should recieve an email reciept shortly.</h4>
+                         <h1 class="center " id="ticketmessage"></h1>
                         <h4 class="text-center ">Your Order Token Is:</h4>
                         <h1 class="center " id="tokenmessage"></h1>
                       </div>
@@ -252,6 +253,7 @@
 
   <script >
       var token;
+      var id;
       var end = false;
 
 
@@ -327,11 +329,52 @@
     }
 
   function start() {
-      $.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "raffle" , "location":"nz" } )
+      $.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "singapore-raffle" , "location":"nz" } )
                     .done(function( data ) {
                       
                       token = data.token;
+                      id = data.id;
                       console.log(token);
+
+                    })
+                    .fail(function(response) {
+
+                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
+                        $("#details").addClass("hide");
+                        $("#payment").addClass("hide");
+                        $(".error-section").removeClass("hide");
+                  
+              });
+    }
+
+    function final() {
+
+        $.post( "https://desolate-lowlands-92183.herokuapp.com/ticket/fetch.json", {"token": id } )
+                    .done(function( data ) {
+                      
+                      
+                      console.log(data);
+                      console.log(data.length);
+
+                      if(data.length == 1) {
+                        $("#ticketmessage").html( "You have ticket <b>" + (data[0].id + 280) + "</b>"  );
+                        pass();
+                      }
+
+                      if(data.length > 1) {
+                         $("#ticketmessage").html( "You have tickets <b>" + (data[0].id + 280) + " - " + (data[0].id + data.length + 1363 -1) + "</b>" );
+                         pass();
+                      }
+
+                      if(data.length < 1) {
+                        
+                      
+
+                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
+                        $("#details").addClass("hide");
+                        $("#payment").addClass("hide");
+                        $(".error-section").removeClass("hide");
+                      }
 
                     })
                     .fail(function(response) {
@@ -352,7 +395,11 @@
        loader();
       
             $.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/raffle.json", {"stripetoken": stripetoken , "name": name, "purchase": $("#tickets").val(), "delivery": "", "address": address, "token":token, "email":email} )
-                    .done(function( data ) { console.log( data ); pass(); })
+                    .done(function( data ) { 
+                      if(data === undefined ){ 
+                        final();  
+                      }
+                    })
                     .fail(function(data) {
                         console.log(data)
                         $("#errormessage").html( 'Please check your order and try again.\nError: <span>' + data + "</span>");

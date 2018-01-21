@@ -588,8 +588,11 @@
                     if(all[i].tickets.length > 0) {
 
                         if(all[i].tickets[0].id > 50) {
+
+                            if(all[i].recorddetails[ all[i].recorddetails.length - 1 ].email != "oli.m.james@gmail.com") {
                        
-                            raffle.push( sale[i] );
+                                raffle.push( sale[i] );
+                            }
                         }
                     } else {
                         if(all[i].recorddetails.length > 0) {
