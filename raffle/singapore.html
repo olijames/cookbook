@@ -1,473 +1,358 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Cancer Society Raffle</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Engagement|Leckerli+One|Mrs+Sheppards" rel="stylesheet">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/ico" href="images/favicon.ico">
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
 
+    <style>
+     * {
+         -moz-box-sizing:border-box;
+         -webkit-box-sizing:border-box;
+         box-sizing:border-box;
+     }
 
-</head>
-<body>
+     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+     menu, nav, section, summary, time, mark, audio, video {
+         margin:0;
+         padding:0;
+         border:0;
+         outline:0;
+         vertical-align:baseline;
+         background:transparent;
+     }
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+         display: block;
+     }
 
-  <div class="row">
-    <div class="four columns"> <img class="u-max-full-width" src="images/asia-1782429_1920.jpg"></div>
-    <div class="four columns"><img class="u-max-full-width" src="images/holiday-1560815_1920.jpg"></div>
-    <div class="four columns"><img class="u-max-full-width" src="images/singapore-1927733_1920.jpg"></div>
-  </div>
-  <div class="black">
-    <div class="container ">
-      <div class="row">
-        <div class="six column logo" style="margin-top: 5%">
-           <img class="u-max-full-width" src="images/logo.png">
-        </div>
-      </div>
-      <div class="row">
-        <div class="seven column header" >
-           <h1>Win Return Flights for two to Singapore</h1>
-        </div>
-      </div>
-      <div class="row big gap">
-        <div class="three columns logo" style="margin-top: -5%">
-           <img class="u-max-full-width bump" src="images/Price-per-ticket.png">
-        </div>
-         <div class="three columns offset-by-six columns logo" >
-           <img class="u-max-full-width" src="images/sa.png">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="text gap">
-    <div class="container only-big">
-      <div class="row">
-        <div class="tweleve columns columns fade-black" style="margin-top: 25%">
-          <h3 class="center">Enter the Draw</h3>
+     html {
+         font-size: 16px;
+         line-height: 24px;
+         width:100%;
+         height:100%;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         overflow-y:scroll;
+         overflow-x:hidden;
+     }
 
-          <form id="details" data-toggle="validator" role="form">
-            
-            <div class="row">
-              <div class="six columns">
-                <label for="tickets">Number of Tickets</label>
-                <input class="u-full-width" type="number" value="1" id="tickets">
-              </div>
-              <div class="six columns">
-                <label for="tickets">Price</label>
-                <h3 id="price"> $5 </h3>
-              </div>
-              <div class="twelve columns">
-                <label for="Name">Your Name</label>
-                <input class="u-full-width form-control" type="text" id="Name" required>
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="six columns">
-                <label for="Email">Your email</label>
-                <input class="u-full-width form-control" type="email"  id="Email" required>
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="six columns">
-                <label for="Phone">Your Phone Number</label>
-                <input class="u-full-width form-control" type="text"  id="Phone" required>
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="twelve columns">
-                <label for="Street">Street Address</label>
-                <input class="u-full-width form-control" type="text"  id="Street" required>
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="six columns">
-                <label for="Suburb">Suburb</label>
-                <input class="u-full-width form-control" type="text"  id="Suburb" required>
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="six columns">
-                <label for="City">City</label>
-                <input class="u-full-width form-control" type="text"  id="City" required>
-                <div class="help-block with-errors"></div>
-              </div>
-            </div>
-           
-              
-            
-            <br />
-            <h5 id="error-message" class="hide"> Please Complete Every Field </h5>
-            <a onClick="details()" class="button-primary u-full-width" type="submit">Next</a>
-          </form>
+     img {
+         vertical-align:middle;
+         max-width: 100%;
+         height: auto;
+         border: 0;
+         -ms-interpolation-mode: bicubic;
+     }
 
-          <div id="payment" class="hide gap">
-            <div class="six columns">
-                 <h3 class="center"> Tickets: <b><span id="doubleTickets">1</span></b> </h3>
-              </div>
-              <div class="six columns">
-                  <h3 class="center"> $<b><span id="doubleCost">5</span></b> </h3>
-              </div>
-              
-              <br /> <br /> <br /> <br /> <br />
-            <form action="/charge" method="post" id="payment-form">
-            <div class="form-row">
-            <label for="card-element">
-           <h3> Credit or debit card </h3>
-            </label>
-            <div id="card-element">
+     body {
+         min-height:100%;
+         -webkit-font-smoothing: subpixel-antialiased;
+     }
 
-            </div>
-
-            <div id="card-errors" role="alert"></div>
-            </div>
-            <br /> <br />
-            <button class="button-primary u-full-width ">Submit Payment</button>
-            </form>
-             <a onClick="restart()" class="button-secondary u-full-width ">Back</a>
-            <br>
-           
-
-
-        </div>
-                    <div class="error-section hide  ">
-                        <h4 class="text-center ">Sorry something went wrong</h4>
-                        <p class="text-center " id="errormessage"></p>
-                      </div>
-
-                      <div class="pass-section hide  ">
-                        <h4 class="text-center ">Thank You</h4>
-                        <h4 class="text-center ">Your Order has been processed, you should recieve an email reciept shortly.</h4>
-                         <h1 class="center " id="ticketmessage"></h1>
-                        <h4 class="text-center ">Your Order Token Is:</h4>
-                        <h1 class="center " id="tokenmessage"></h1>
-                      </div>
-                      <div class="loader hide spacer">
-                        <h2 class="center">Sending ....</h2>
-                      </div>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="row gap big">
-    <div class="four columns"> <img class="u-max-full-width" src="images/lily-lvnatikk-271825.jpg"><img class="u-max-full-width" src="images/asia-1782429_1920.jpg"></div>
-    <div class="four columns terms">
-
-
-<h3>Terms and Conditions of Singapore Airlines’ Prize</h3>
-<p><b>2x Economy Class Flights to Singapore</b></p>
-<p><b>1 </b> The prize ticket has no commercial value and cannot be sold or converted into cash. </p>
-
-<p><b>2 </b> The Prize is one return Economy Class ticket for the prizewinner and one for a companion for travel to Singapore on the Singapore Airlines network. The companion must accompany the prizewinner on all flights. Flights can depart from Auckland, Wellington (via Canberra) or Christchurch. </p>
-
-<p><b>3 </b> The ticket is valid for travel departing during the period from 01 April 2018 until 31 March 2019. This excludes our peak travel period 10 December 2018 to 31 January 2019. Travel must be completed by 31 March 2019. </p>
-
-<p><b>4 </b> All travel must be booked on Singapore Airlines operated aircraft, codeshare flights are not permitted. Maximum stay is 6 months. </p>
-
-<p><b>5 </b> The ticket is non-transferable, non-reroutable and non-endorsable. Any unused portion must be returned to Singapore Airlines Office in Christchurch for cancellation. </p>
-
-<p><b>6 </b> Singapore Airlines may impose flight embargoes during periods of heavy demand as is required commercially from time to time, without prior notice. </p>
-
-<p><b>7 </b> The issuance of tickets is subject to seat availability. </p>
-
-<p><b>8 </b> The ticket will only be issued if all sectors are confirmed. </p>
-
-<p><b>9 </b> Excess baggage waivers will not be granted. </p>
-
-<p><b>10</b> Prizewinners are responsible for any government and airport taxes related to their tickets. </p>
-
-<p><b>11</b>  The ticket is not valid for any frequent flyer point accrual or upgrades. </p>
-
-<p><b>12</b>  Once the ticket is issued, requests for changes of passengers’ names and traveling sectors made two working days or less before the date of travel will be subjected to Singapore Airline’s approval and upon approval, a cancellation charge of NZD$75.00 per change will be levied. </p>
-
-<p><b>13</b>  The prizewinner will undertake to pay for any transportation costs to and from departure points, or transfers to and from airports or hotels and personal insurance. Passport, visa and re-entry permit are the responsibility of the prizewinner. </p>
-
-<p><b>14</b>  Economy Class tickets are not upgradeable to Business class unless the winner wishes to do so at their expense. </p>
-
-<p><b>15</b>  Singapore Airlines Stopover package is not eligible for prizewinner bookings. </p>
-
-    </div>
-    <div class="four columns"><img class="u-max-full-width" src="images/lily-lvnatikk-295760.jpg"><img class="u-max-full-width" src="images/singapore-1927733_1920.jpg"></div>
-  </div>
-  <div class="row gap small">
-    <div class="column terms">
-        <h3>Terms and Conditions of Singapore Airlines’ Prize</h3>
-<p><b>2x Economy Class Flights to Singapore</b></p>
-<p><b>1 </b> The prize ticket has no commercial value and cannot be sold or converted into cash. </p>
-
-<p><b>2 </b> The Prize is one return Economy Class ticket for the prizewinner and one for a companion for travel to Singapore on the Singapore Airlines network. The companion must accompany the prizewinner on all flights. Flights can depart from Auckland, Wellington (via Canberra) or Christchurch. </p>
-
-<p><b>3 </b> The ticket is valid for travel departing during the period from 01 April 2018 until 31 March 2019. This excludes our peak travel period 10 December 2018 to 31 January 2019. Travel must be completed by 31 March 2019. </p>
-
-<p><b>4 </b> All travel must be booked on Singapore Airlines operated aircraft, codeshare flights are not permitted. Maximum stay is 6 months. </p>
-
-<p><b>5 </b> The ticket is non-transferable, non-reroutable and non-endorsable. Any unused portion must be returned to Singapore Airlines Office in Christchurch for cancellation. </p>
-
-<p><b>6 </b> Singapore Airlines may impose flight embargoes during periods of heavy demand as is required commercially from time to time, without prior notice. </p>
-
-<p><b>7 </b> The issuance of tickets is subject to seat availability. </p>
-
-<p><b>8 </b> The ticket will only be issued if all sectors are confirmed. </p>
-
-<p><b>9 </b> Excess baggage waivers will not be granted. </p>
-
-<p><b>10</b> Prizewinners are responsible for any government and airport taxes related to their tickets. </p>
-
-<p><b>11</b>  The ticket is not valid for any frequent flyer point accrual or upgrades. </p>
-
-<p><b>12</b>  Once the ticket is issued, requests for changes of passengers’ names and traveling sectors made two working days or less before the date of travel will be subjected to Singapore Airline’s approval and upon approval, a cancellation charge of NZD$75.00 per change will be levied. </p>
-
-<p><b>13</b>  The prizewinner will undertake to pay for any transportation costs to and from departure points, or transfers to and from airports or hotels and personal insurance. Passport, visa and re-entry permit are the responsibility of the prizewinner. </p>
-
-<p><b>14</b>  Economy Class tickets are not upgradeable to Business class unless the winner wishes to do so at their expense. </p>
-
-<p><b>15</b>  Singapore Airlines Stopover package is not eligible for prizewinner bookings. </p>
-    </div>
-  </div>
-  
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-<script src="https://js.stripe.com/v3/"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
-  <script >
-      var token;
-      var id;
-      var end = false;
-
-
-  
-  $('#tickets').change(function(){
-
-
-
-    var price = $('#tickets').val();
-
-    if(price > 10) {
-      price = 10;
-      $('#tickets').val(10);
-    }
-
-    price = price * 5;
-
-    $('#price').html("$<b>" + price + "</b>");
-    $('#doubleCost').html(price);
-    $('#doubleTickets').html( $('#tickets').val() );
-  });
-
-  start();
-
-  function loader() {
-    $("#details").addClass("hide");
-    $("#payment").addClass("hide");
-    $(".loader").removeClass("hide");
-
+     .clearfix {
+	       clear:both;
+	       zoom: 1;
+     }
+     .clearfix:before, .clearfix:after {
+         content: "\0020";
+         display: block;
+         height: 0;
+         visibility: hidden;
+     } 
+     .clearfix:after {
+         clear: both;
+     }
+    </style>
+    <style>
+  .plain.error-page-wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#6355bc;
+    padding:0 5%;
+    position:relative;
   }
 
-  function details() {
-
-
-     
-       if( $("#Email").val().length < 1 ||  $("#Phone").val().length < 1 ||  $("#Name").val().length < 1 ||  $("#Street").val().length < 1 ||  $("#City").val().length < 1 ||  $("#Suburb").val().length < 1) {
-        
-          console.log("fail");
-          $("#error-message").removeClass("hide");
-      } else {
-          senddetails();
-          
-      }
-
-      
+  .plain.error-page-wrapper .content-container {
+    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
+    -moz-transition: left .5s ease-out, opacity .5s ease-out;
+    -ms-transition: left .5s ease-out, opacity .5s ease-out;
+    -o-transition: left .5s ease-out, opacity .5s ease-out;
+    transition: left .5s ease-out, opacity .5s ease-out;
+    max-width:400px;
+    position:relative;
+    left:-30px;
+    opacity:0;
   }
 
-  function senddetails() {
+  .plain.error-page-wrapper .content-container.in {
+    left: 0px;
+    opacity:1;
+  }
 
-     
-      loader();
+  .plain.error-page-wrapper .head-line {
+    transition: color .2s linear;
+    font-size:48px;
+    line-height:60px;
+    color:rgba(255,255,255,.2);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+  .plain.error-page-wrapper .subheader {
+    transition: color .2s linear;
+    font-size:36px;
+    line-height:46px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper hr {
+    height:1px;
+    background-color: rgba(255,255,255,.2);
+    border:none;
+    width:250px;
+    margin:35px 0;
+  }
+  .plain.error-page-wrapper .context {
+    transition: color .2s linear;
+    font-size:18px;
+    line-height:27px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper .context p {
+    margin:0;
+  }
+  .plain.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:12px;
+  }
+  .plain.error-page-wrapper .buttons-container {
+    margin-top: 45px;
+    overflow: hidden;
+  }
+  .plain.error-page-wrapper .buttons-container a {
+    transition: color .2s linear, border-color .2s linear;
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    border:2px solid white;
+    border-radius: 99px;
+    padding:8px 30px 9px;
+    display: inline-block;
+    float:left;
+  }
+  .plain.error-page-wrapper .buttons-container a:hover {
+    background-color:rgba(255,255,255,.05);
+  }
+  .plain.error-page-wrapper .buttons-container a:first-child {
+    margin-right:25px;
+  }
 
-      email = $("#Email").val();
-      name =  $("#Name").val();
+  @media screen and (max-width: 485px) {
+    .plain.error-page-wrapper .header {
+      font-size:36px;
+     }
+    .plain.error-page-wrapper .subheader {
+      font-size:27px;
+      line-height:38px;
+     }
+    .plain.error-page-wrapper hr {
+      width:185px;
+      margin:25px 0;
+     }
 
-      address = $("#Street").val()+ " " +$("#Suburb").val() + " " + $("#City").val();
-
-      $.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": "Raffle", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": "Raffle", "token" : token } )
-                  .done(function( data ) {
-                      
-                      $(".loader").addClass("hide");
-                       $("#payment").removeClass("hide");
-
-                  })
-                    .fail(function(response) {
-
-                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
-
-                        $(".loader").addClass("hide");
-                        $(".error-section").removeClass("hide");
-                  
-              });
+    .plain.error-page-wrapper .context {
+      font-size:16px;
+      line-height: 24px;
+     }
+    .plain.error-page-wrapper .buttons-container {
+      margin-top:35px;
     }
 
-  function start() {
-      $.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "singapore-raffle" , "location":"nz" } )
-                    .done(function( data ) {
-                      
-                      token = data.token;
-                      id = data.id;
-                      console.log(token);
+    .plain.error-page-wrapper .buttons-container a {
+      font-size:13px;
+      padding:8px 0 7px;
+      width:45%;
+      text-align: center;
+    }
+    .plain.error-page-wrapper .buttons-container a:first-child {
+      margin-right:10%;
+    }
+  }
+</style>
 
-                    })
-                    .fail(function(response) {
+    <style>
 
-                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
-                        $("#details").addClass("hide");
-                        $("#payment").addClass("hide");
-                        $(".error-section").removeClass("hide");
-                  
-              });
+    .background-color {
+      background-color: #6355BC !important;
     }
 
-    function final() {
 
-        $.post( "https://desolate-lowlands-92183.herokuapp.com/ticket/fetch.json", {"token": id } )
-                    .done(function( data ) {
-                      
-                      
-                      console.log(data);
-                      console.log(data.length);
-
-                      if(data.length == 1) {
-                        $("#ticketmessage").html( "You have ticket <b>" + (data[0].id + 280) + "</b>"  );
-                        pass();
-                      }
-
-                      if(data.length > 1) {
-                         $("#ticketmessage").html( "You have tickets <b>" + (data[0].id + 280) + " - " + (data[0].id + data.length + 1363 -1) + "</b>" );
-                         pass();
-                      }
-
-                      if(data.length < 1) {
-                        
-                      
-
-                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
-                        $("#details").addClass("hide");
-                        $("#payment").addClass("hide");
-                        $(".error-section").removeClass("hide");
-                      }
-
-                    })
-                    .fail(function(response) {
-
-                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
-                        $("#details").addClass("hide");
-                        $("#payment").addClass("hide");
-                        $(".error-section").removeClass("hide");
-                  
-              });
+    .primary-text-color {
+      color: #FFFFFF !important;
     }
 
-    function stripesend( stripetoken ) {
-      if(end == true){return null;}
-
-      end = true;
-
-       loader();
-      
-            $.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/raffle.json", {"stripetoken": stripetoken , "name": name, "purchase": $("#tickets").val(), "delivery": "", "address": address, "token":token, "email":email} )
-                    .done(function( data ) { 
-                      if(data === undefined ){ 
-                        final();  
-                      }
-                    })
-                    .fail(function(data) {
-                        console.log(data)
-                        $("#errormessage").html( 'Please check your order and try again.\nError: <span>' + data + "</span>");
-
-                        $("#details").addClass("hide");
-                        $("#payment").addClass("hide");
-                        $("#loader").addClass("hide");
-                        $(".error-section").removeClass("hide");
-                 
-              });
+    .secondary-text-color {
+      color: #8277c9 !important;
     }
 
-    var stripe = Stripe('pk_live_YP8aPjLeMDjvFy2jTcyTNdHw');
-    var elements = stripe.elements();
 
-    // Custom styling can be passed to options when creating an Element.
-    var style = {
-      base: {
-        // Add your base input styles here. For example:
-        fontSize: '16px',
-        lineHeight: '24px'
-      }
-    };
 
-    // Create an instance of the card Element
-    var card = elements.create('card', {style: style});
 
-    // Add an instance of the card Element into the `card-element` <div>
-    card.mount('#card-element');
-
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      stripe.createToken(card).then(function(result) {
-        if (result.error) {
-          // Inform the user if there was an error
-          var errorElement = document.getElementById('card-errors');
-          errorElement.textContent = result.error.message;
-        } else {
-          // Send the token to your server
-          stripesend(result.token.id);
-        }
-      });
-    });
-
-    function pass() {
-      $("#tokenmessage").html( '#: ' + token.substring(0, 6) );
-      $("#payment").addClass("hide");
-      $(".loader").addClass("hide");
-      $(".pass-section").removeClass("hide");
+    .border-button {
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+    }
+    .button {
+      background-color: #FFFFFF !important;
+      color:  !important;
     }
 
-    function restart() {
-      $("#payment").addClass("hide");
-      $(".loader").addClass("hide");
-      $("#details").removeClass("hide");
-    }
 
-  </script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+</style>
 
-    ga('create', 'UA-104037480-1', 'auto');
-    ga('send', 'pageview');
+  </head>
+  <body class="plain error-page-wrapper background-color background-image">
+    <div class="content-container">
+	<div class="head-line secondary-text-color">
+		404
+	</div>
+	<div class="subheader primary-text-color">
+		Oops, the page you're <br>
+		looking for does not exist.
+	</div>
+	<hr>
+	<div class="clearfix"></div>
+	<div class="context primary-text-color">
+		<!-- doesn't use context_content because it's ALWAYS the same thing -->
+    <p>
+      You may want to head back to the homepage.<br />
+      If you think something is broken, report a problem.
+    </p>
+	</div>
+	<div class="buttons-container">
+		<a class="border-button" href="http://foodconnection.co.nz" target="_blank">Go To Homepage</a>
+		<a class="border-button" href="mailto:emily.box@cancercwc.org.nz" target="_blank">Report A Problem</a>
+	</div>
+</div>
 
-  </script>
+
+    <script>
+     function ErrorPage(container, pageType, templateName) {
+       this.$container = $(container);
+       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+       this.pageType = pageType;
+       this.templateName = templateName;
+     }
+
+     ErrorPage.prototype.centerContent = function () {
+       var containerHeight = this.$container.outerHeight()
+         , contentContainerHeight = this.$contentContainer.outerHeight()
+         , top = (containerHeight - contentContainerHeight) / 2
+         , offset = this.templateName == 'sign' ? -100 : 0;
+
+       this.$contentContainer.css('top', top + offset);
+     };
+
+     ErrorPage.prototype.initialize = function () {
+       var self = this;
+
+       this.centerContent();
+       this.$container.on('resize', function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         self.centerContent();
+       });
+
+       // fades in content on the plain template
+       if (this.templateName == 'plain') {
+         window.setTimeout(function () {
+           self.$contentContainer.addClass('in');
+         }, 500);
+       }
+
+       // swings sign in on the sign template
+       if (this.templateName == 'sign') {
+         $('.sign-container').animate({textIndent : 0}, {
+           step : function (now) {
+             $(this).css({
+               transform : 'rotate(' + now + 'deg)',
+               'transform-origin' : 'top center'
+             });
+           },
+           duration : 1000,
+           easing : 'easeOutBounce'
+         });
+       }
+     };
+
+
+     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+       return (
+         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+       )
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+       if (pageType == '503') {
+         $('#replace-with-fetched-data').html(data.status.description);
+       } else {
+         if (!!data.scheduled_maintenances.length) {
+           var maint = data.scheduled_maintenances[0];
+           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+           $.fn.localizeTime();
+         }
+         else {
+           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+         }
+       }
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+       $('#replace-with-fetched-data').html('<em>(enter a valid Statuspage url)</em>');
+     };
+
+
+     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+       //console.log('in app.js fetch');
+       if (!pageUrl || !pageType || pageType == '404') return;
+
+       var url = ''
+         , self = this;
+
+       if (pageType == '503') {
+         url = pageUrl + '/api/v2/status.json';
+       }
+       else {
+         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+       }
+
+       $.ajax({
+         type : "GET",
+         url : url,
+       }).success(function (data, status) {
+         //console.log('success');
+         self.handleStatusFetchSuccess(pageType, data);
+       }).fail(function (xhr, msg) {
+         //console.log('fail');
+         self.handleStatusFetchFail(pageType);
+       });
+
+     };
+     var ep = new ErrorPage('body', "404", "plain");
+     ep.initialize();
+
+     // hack to make sure content stays centered >_<
+     $(window).on('resize', function() {
+       $('body').trigger('resize')
+     });
+
+    </script>
+
+    
+  </body>
 </html>
