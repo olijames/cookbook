@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+	<title>Order Form - The Food Connection, a Cookbook from the Cancer Society. Family, Friends, Food.</title>
+
+	<meta name="description" content="Food connects our lives, our loves, our family, our community and our work at the Cancer Society. Food is an integral part of our lives, and not in the least here at the Cancer Society, where preparing, sharing, enjoying, gifting, sustaining and loving food is part of healing and coping with cancer.">
+    
+    <meta name="keywords" content="cookbook,recipe,Family,Friends,Food,selection,book">
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<meta name="robots" content="index, follow">
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<!--     Fonts and icons     -->
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+    <link href="assets/css/typeplate.css" rel="stylesheet"/>
+
+	<link href="assets/css/landing.css" rel="stylesheet" />
+	<link href="assets/css/text.css" rel="stylesheet" />
+	<link href="assets/css/inside-chapter.css" rel="stylesheet" />
+
+	<script src="https://js.stripe.com/v3/"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-104037480-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+
+<body class="shop-page full-page-img">
+
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="modal" data-target="#myModal">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <a href="index.html">
+           <div class="logo-container">
+                <div class="logo">
+                    <img src="assets/img/logo.png" >
+                </div>
+            </div>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+		<ul  class="nav navbar-nav navbar-right">
+			<li>
+				<a href="#"  data-toggle="modal" data-target="#myModal">Menu</a>
+			</li>
+    	</ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-7 col-xs-12">
+				<div class="card order-card col-md-12 plain-text fold-down-four">
+					<div class="pay-section col-md-12 ">
+							<div class="row">
+				                <h3>FOOD CONNECTION</h3>
+				                <legend></legend>
+				                			
+				                			<form id="order" >
+				                				<h4 class="text-center ">Your Order</h4>
+				                				<div class="row">
+					                				<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<h5 id="purchase-amount">Your Order</h5>
+															<div class="dropdown">
+															  <button id="copiesbutton" class="btn btn-purchase btn-full dropdown-toggle" type="button" data-toggle="dropdown">Number of Copies &nbsp<span class="caret"></span></button>
+															  <ul class="dropdown-menu">
+															    <li><a onClick="copies(1)">One</a></li>
+															    <li><a onClick="copies(2)">Two</a></li>
+															    <li><a onClick="copies(3)">Three</a></li>
+															    <li><a onClick="copies(4)">Four</a></li>
+															    <li><a onClick="copies(5)">Five</a></li>
+															    <li><a onClick="copies(6)">Six +</a></li>
+															  </ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<h2 id="priceEstimate">$0</h2>
+															
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-xs-6"></div>
+												<br />
+												<br />
+												<h5 >Promo Code</h5>
+												<div class="col-sm-12">
+
+														<div class="form-group label-floating">
+															<input id="promo" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+												</div>
+												<br />
+												<h5 id="shiping-method">Shipping Method </h5>
+												<div class="col-xs-12">
+													<div class="checkbox">
+														<label>
+															<input id="office" type="checkbox" name="optionsCheckboxes" class="check">
+															Pick Up from local Cancer Society office &nbsp<b>Free</b>
+														</label>
+													</div>
+													<div class="office hide">
+														<div class="checkbox">
+															<label>
+																<input id="office1" type="checkbox" name="optionsCheckboxes" class="check">
+																Christchurch &nbsp<b>Free</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office2" type="checkbox" name="optionsCheckboxes"  class="check">
+																Ashburton &nbsp<b>Free</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office3" type="checkbox" name="optionsCheckboxes"  class="check">
+																Timaru &nbsp<b>Free</b>
+															</label>
+														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office4" type="checkbox" name="optionsCheckboxes"  class="check">
+																Westcoast &nbsp<b>Free</b>
+															</label>
+														</div>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery1" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - Local Christchurch Metro Area &nbsp<b>$3.30</b>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery2" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - National Delivery &nbsp<b>$6.85</b>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input id="delivery3" type="checkbox" name="optionsCheckboxes"  class="check">
+															Courier - Rural Delivery &nbsp<b>$12.45</b>
+														</label>
+													</div>
+
+
+												
+												</div>
+												<a onClick="order()" class="col-xs-12 btn btn-purchase gap">Next</a>
+
+											</form>
+
+										
+											<form id="details" class="hide" data-toggle="validator" role="form" data-disable="true">
+											<h4 class="text-center ">Details</h4>
+												
+												<div class="row tim-row">
+
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">First Name</label>
+															<input id="first" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">Last Name</label>
+															<input id="last" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">Email Address</label>
+															<input id="email" type="email" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group label-floating">
+															<label class="control-label">Phone Number</label>
+															<input id="phone" type="number" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Street Address</label>
+															<input id="street" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group label-floating">
+															<label class="control-label">Suburb</label>
+															<input id="suburb" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-9">
+														<div class="form-group label-floating">
+															<label class="control-label">City</label>
+															<input id="city" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group label-floating">
+															<label class="control-label">Postcode</label>
+															<input id="postcode" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+													</div>
+
+												</div>
+												<a onClick="details()" class="col-xs-12 btn btn-purchase" type="submit">Next</a>
+												<br>
+												<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
+											</form>
+
+											<div class="error-section hide col-xs-10 col-xs-offset-1 ">
+												<h4 class="text-center ">Sorry something went wrong</h4>
+												<p class="text-center " id="errormessage"></p>
+												<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
+											</div>
+
+											<div class="pass-section hide col-xs-10 col-xs-offset-1 ">
+												<h4 class="text-center ">Thank You</h4>
+												<h4 class="text-center ">Your Order has been processed, you should recieve an email reciept shortly.</h4>
+												<h4 class="text-center ">Your Order Token Is:</h4>
+												<p class="text-center " id="tokenmessage"></p>
+											</div>
+
+											<div id="payment" class="hide gap">
+												<form action="/charge" method="post" id="payment-form">
+												  <div class="form-row">
+												    <label for="card-element">
+												      Credit or debit card
+												    </label>
+												    <div id="card-element">
+												      <!-- a Stripe Element will be inserted here. -->
+												    </div>
+
+												    <!-- Used to display Element errors -->
+												    <div id="card-errors" role="alert"></div>
+												  </div>
+
+												  <button class="col-xs-12 btn btn-purchase gap">Submit Payment</button>
+												</form>
+												<br>
+												<a onClick="order()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
+
+												
+											</div>
+
+											<div class="loader hide col-xs-12 center-block"></div>
+
+											<form id="contact" class="hide">
+												<h4 class="text-center ">Orders of more than 5</h4>
+												<div class="row tim-row">
+													<div class="col-xs-10 col-xs-offset-1">
+														<p class="text-center">Please contact the Cancer Society directly for any orders of more than 5.</p>
+														<br />
+														<p class="text-center" href="cookbook@cwc.org.nz">cookbook@cancercwc.org.nz</p>
+														<br />
+														<p class="text-center">or</p>
+														<br />
+														<p class="text-center">+64 3 379 5835</p>
+														<a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
+												</div>
+
+												
+											</form>
+
+											
+				                
+											</div>
+				            </div>
+				    </div>
+				</div>
+			</div>
+
+			<div class="col-md-5 col-xs-12 fold-down-four">
+						<img src="assets/img/Dropbox/cover.jpg" alt="Raised Image" class="img-responsive img-raised im order-card-img ">
+						
+			</div>
+			
+		</div>
+	</div>
+	<div class="modal fade menu-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="container">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<h4>Close</h4>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<row>
+						<div class="col-md-4">
+							<a href="#home"><h4>Home</h4></a>
+						</div>
+						<div class="col-md-4">
+							 
+						</div>
+						<div class="col-md-4">
+							<a href="order.html"><h4><b>Order Now</b></h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<br />
+					<br />
+					<row>
+						<div class="col-md-4">
+							<a href="index.htmlindex.html#overview"><h4>Overview</h4></a>
+						</div>
+						<div class="col-md-4">
+							 <a href="index.html#timeline"><h4>Timeline</h4></a>
+						</div>
+						<div class="col-md-4">
+							<a href="index.html#involved"><h4>Get Involved</h4></a>
+						</div>
+					</row>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Sample Recipe Chapters</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-starters.html"><h4>Starters & Something Light</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-fish.html"> <h4>Fish & Seafood</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-meat.html"><h4>Meat & Poultry</h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="chapter-vege.html"><h4>Vege, Salads & Sides</h4></a>
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-dessert.html"><h4>Desserts & Pudding</h4></a>
+							</div>
+							<div class="col-md-4">
+								<a href="chapter-baking.html"><h4>Baking & Treats </h4></a>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+							</div>
+							<div class="col-md-4">
+								 <a href="chapter-party.html"><h4>Party Food & Drinks</h4></a>
+							</div>
+							<div class="col-md-4">
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						<h5 ><u>Contributors</u></h5>
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								<a href="index.html#deborah"><h4>Deborah Aspray</h4></a>
+							</div>
+							<div class="col-md-4">
+								 
+							</div>
+							<div class="col-md-4">
+								<a href="index.html#tony"><h4>Tony Smith</h4></a>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<div class="modal-section">
+						
+						<br />
+						<div class="row">
+							<div class="col-md-4">
+								
+							</div>
+							<div class="col-md-4">
+					                <div class="logo">
+					                    <a href="https://canterbury-west-coast.cancernz.org.nz/"><img src="assets/img/logo.png" ></a>
+					                </div>
+							</div>
+							<div class="col-md-4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!--  End Modal -->
+
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/material.min.js"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="assets/js/material-kit.js" type="text/javascript"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" type="text/javascript"></script>
+
+	
+
+	<script>
+
+	var copyPrice = 0;
+	var deliveryPrice = 0;
+	var priceEstimate = 0;
+	var copynumber = 0;
+
+	var delivery = "New Zealand";
+
+	var email = "";
+	var name = "";
+	var purchase = 0;
+	var delivery = 0;
+	var itemcode = 1;
+	var address = "";
+	var token = "";
+
+	var currentPrice = 39.99
+
+		$().ready(function(){
+
+			$(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
+
+		});
+
+		$('input[type=checkbox]').change(function(){
+			
+			
+		    if($(this).is(':checked')) {
+
+		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4') {
+		        	if(this.id === 'office1'){delivery = 1;}
+		        	if(this.id === 'office2'){delivery = 2;}
+		        	if(this.id === 'office3'){delivery = 3;}
+		        	if(this.id === 'office4'){delivery = 6;}
+		        	$("#delivery1").attr('checked', false);
+			        $("#delivery2").attr('checked', false);
+			        $("#delivery3").attr('checked', false);
+		        } else {
+
+
+		        //$(".check").attr('checked', false);
+			        if(this.id === 'office' ) {
+			        	
+			        	$(".office").removeClass("hide");
+			        	$("#delivery1").attr('checked', false);
+			        	$("#delivery2").attr('checked', false);
+			        	$("#delivery3").attr('checked', false);
+
+			        	deliveryPrice = 0;
+
+			        } else {
+			        	$(".office").addClass("hide");
+			        	$("#office").attr('checked', false);
+			        	$("#office1").attr('checked', false);
+			        	$("#office2").attr('checked', false);
+			        	$("#office3").attr('checked', false);
+
+			        	if(this.id === 'delivery1'){
+			        		$("#delivery2").attr('checked', false);
+			        		$("#delivery3").attr('checked', false);
+			        		deliveryPrice = 3.30;
+			        		delivery = 4;
+			        	} else {
+			        		if(this.id === 'delivery2'){
+				        		$("#delivery1").attr('checked', false);
+				        		$("#delivery3").attr('checked', false);
+				        		deliveryPrice = 6.85;
+				        		delivery = 5;
+				        	} else {
+				        		$("#delivery1").attr('checked', false);
+				        		$("#delivery2").attr('checked', false);
+				        		deliveryPrice = 12.45;
+				        		delivery = 7;
+				        	}
+			        	}
+
+			        }
+			        updatePrice();
+			    }
+			    
+
+		    } else {
+		    	$(".office").addClass("hide");
+		        deliveryPrice = 0;
+		        updatePrice();
+		    }
+		});
+
+		function copies(number) {
+
+			if( $("#promo").val() == "FOOD" ) {
+				currentPrice = 30.00
+				itemcode = 2
+				
+			} else {
+				currentPrice = 39.99
+				itemcode = 1
+			}
+
+			copyPrice = 0;
+			
+			if(number === 6) { contact(); return null;}
+
+			if(number === 1) {
+				$("#copiesbutton").html("1  Copy &nbsp<span class='caret'></span>");
+			} else {
+				$("#copiesbutton").html( number + "  Copies &nbsp<span class='caret'></span>");
+			}
+
+			
+			purchase = number;
+
+			copynumber = number;
+
+			copyPrice = (number * currentPrice);
+
+			updatePrice();
+
+		}
+
+		$( "#promo" ).change(function() {
+			$(this).val($(this).val().toUpperCase());
+		    copies(purchase);
+		    
+		});
+
+		function updatePrice() {
+			//copyPrice = copyPrice.toFixed(2);
+			//deliveryPrice = deliveryPrice.toFixed(2);
+
+			priceEstimate = (copyPrice + deliveryPrice);
+			priceEstimate = priceEstimate.toFixed(2);
+			$( "#priceEstimate" ).html("$"+priceEstimate);
+		}
+
+		function order() {
+
+			if(purchase > 0 && purchase < 6) {
+				if(delivery > 0 && delivery < 8) {
+
+					sendorder();
+					hideall();
+					$("#details").removeClass("hide");
+				} else {
+					$("#shiping-method").addClass("error");
+				}
+			} else {
+				$("#purchase-amount").addClass("error");
+			}
+		}
+
+		function details() {
+
+			
+
+			$('#details').validator('validate');
+
+
+			if( $('#details').validator('validate').has('.has-error').length === 0 ){
+				senddetails();
+				hideall();
+				$("#payment").removeClass("hide");
+			  	
+			} else {
+				
+			}
+
+			
+		}
+
+		function submit() {
+			hideall();
+			$(".loader").removeClass("hide");
+		}
+
+		function contact() {
+			hideall();
+			$("#contact").removeClass("hide");
+		}
+
+		function hideall() {
+
+			$("#order").addClass("hide");
+			$("#payment").addClass("hide");
+			$("#details").addClass("hide");
+			$("#contact").addClass("hide");
+		}
+
+		function restart() {
+			start();
+			 hideall();
+			 $(".error-section").addClass("hide");
+			 $("#order").removeClass("hide");
+		}
+
+		function sendorder() {
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recordorder.json", {"itemcode": itemcode , "amount": purchase, "deliverycode": delivery, "token" : token } )
+			              .done(function( data ) {
+			              	
+			              	
+
+			            })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
+			              		hideall();
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    
+							});
+		}
+
+		function senddetails() {
+
+			email = $("#email").val();
+			name =  $("#first").val() + " " + $("#last").val();
+
+			address = $("#street").val()+ " " +$("#suburb").val() + " " + $("#city").val()+ " " + $("#postcode").val();
+
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recorddetails.json", {"fname": $("#first").val() , "lname": $("#last").val(), "email": $("#email").val(), "street": $("#street").val(), "suburb": $("#suburb").val(), "city": $("#city").val(), "postcode": $("#postcode").val(), "note": $("#phone").val(), "token" : token } )
+			              .done(function( data ) {
+			              	
+			              	
+
+			            })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    
+							});
+		}
+
+		function start() {
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/beginsale.json", {"ip": "test" , "location":"nz" } )
+			              .done(function( data ) {
+			              	
+			              	token = data.token;
+			              	
+
+			              })
+			              .fail(function(response) {
+
+			              		$("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
+			              		hideall();
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							    
+							});
+		}
+
+		function pass() {
+			$("#tokenmessage").html( '#: ' + token.substring(0, 6) );
+			$(".loader").addClass("hide");
+			$(".pass-section").removeClass("hide");
+		}
+
+		function stripesend( stripetoken ) {
+			submit();
+
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email, "promo": itemcode} )
+			              .done(function( data ) { console.log( data ); pass(); })
+			              .fail(function(data) {
+			              		console.log(data)
+			              		$("#errormessage").html( 'Please check your order and try again.\nError: <span>' + data + "</span>");
+
+			              		$(".loader").addClass("hide");
+			              		$(".error-section").removeClass("hide");
+							   
+							});
+		}
+
+		var stripe = Stripe('pk_live_YP8aPjLeMDjvFy2jTcyTNdHw');
+		var elements = stripe.elements();
+
+		// Custom styling can be passed to options when creating an Element.
+		var style = {
+		  base: {
+		    // Add your base input styles here. For example:
+		    fontSize: '16px',
+		    lineHeight: '24px'
+		  }
+		};
+
+		// Create an instance of the card Element
+		var card = elements.create('card', {style: style});
+
+		// Add an instance of the card Element into the `card-element` <div>
+		card.mount('#card-element');
+
+		var form = document.getElementById('payment-form');
+		form.addEventListener('submit', function(event) {
+		  event.preventDefault();
+
+		  stripe.createToken(card).then(function(result) {
+		    if (result.error) {
+		      // Inform the user if there was an error
+		      var errorElement = document.getElementById('card-errors');
+		      errorElement.textContent = result.error.message;
+		    } else {
+		      // Send the token to your server
+		      stripesend(result.token.id);
+		    }
+		  });
+		});
+
+		start();
+
+</script>
+</html>
