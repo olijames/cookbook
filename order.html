@@ -109,8 +109,19 @@
 														</div>
 													</div>
 												</div>
+												
 												<div class="col-xs-6"></div>
 												<br />
+												<br />
+												<h5 >Promo Code</h5>
+												<div class="col-sm-12">
+
+														<div class="form-group label-floating">
+															<input id="promo" type="text" class="form-control" required>
+															<div class="help-block with-errors"></div>
+															<br />
+														</div>
+												</div>
 												<br />
 												<h5 id="shiping-method">Shipping Method </h5>
 												<div class="col-xs-12">
@@ -472,8 +483,11 @@
 	var name = "";
 	var purchase = 0;
 	var delivery = 0;
+	var itemcode = 1;
 	var address = "";
 	var token = "";
+
+	var currentPrice = 39.99
 
 		$().ready(function(){
 
@@ -547,6 +561,15 @@
 
 		function copies(number) {
 
+			if( $("#promo").val() == "FOOD" ) {
+				currentPrice = 30.00
+				itemcode = 2
+				
+			} else {
+				currentPrice = 39.99
+				itemcode = 1
+			}
+
 			copyPrice = 0;
 			
 			if(number === 6) { contact(); return null;}
@@ -562,11 +585,17 @@
 
 			copynumber = number;
 
-			copyPrice = (number * 39.99);
+			copyPrice = (number * currentPrice);
 
 			updatePrice();
 
 		}
+
+		$( "#promo" ).change(function() {
+			$(this).val($(this).val().toUpperCase());
+		    copies(purchase);
+		    
+		});
 
 		function updatePrice() {
 			//copyPrice = copyPrice.toFixed(2);
@@ -638,7 +667,7 @@
 		}
 
 		function sendorder() {
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/recordorder.json", {"itemcode": 1 , "amount": purchase, "deliverycode": delivery, "token" : token } )
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/recordorder.json", {"itemcode": itemcode , "amount": purchase, "deliverycode": delivery, "token" : token } )
 			              .done(function( data ) {
 			              	
 			              	
@@ -704,7 +733,7 @@
 		function stripesend( stripetoken ) {
 			submit();
 
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email} )
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email, "promo": itemcode} )
 			              .done(function( data ) { console.log( data ); pass(); })
 			              .fail(function(data) {
 			              		console.log(data)
