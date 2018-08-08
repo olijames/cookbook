@@ -156,6 +156,12 @@
 																Westcoast &nbsp<b>Free</b>
 															</label>
 														</div>
+														<div class="checkbox">
+															<label>
+																<input id="office5" type="checkbox" name="optionsCheckboxes"  class="check">
+																Selwyn &nbsp<b>Free</b>
+															</label>
+														</div>
 													</div>
 													<div class="checkbox">
 														<label>
@@ -500,11 +506,12 @@
 			
 		    if($(this).is(':checked')) {
 
-		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4') {
+		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4' || this.id === 'office5') {
 		        	if(this.id === 'office1'){delivery = 1;}
 		        	if(this.id === 'office2'){delivery = 2;}
 		        	if(this.id === 'office3'){delivery = 3;}
 		        	if(this.id === 'office4'){delivery = 6;}
+		        	if(this.id === 'office5'){delivery = 8;}
 		        	$("#delivery1").attr('checked', false);
 			        $("#delivery2").attr('checked', false);
 			        $("#delivery3").attr('checked', false);
@@ -609,7 +616,7 @@
 		function order() {
 
 			if(purchase > 0 && purchase < 6) {
-				if(delivery > 0 && delivery < 8) {
+				if(delivery > 0 && delivery < 9) {
 
 					sendorder();
 					hideall();
