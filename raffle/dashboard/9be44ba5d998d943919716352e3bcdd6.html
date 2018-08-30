@@ -517,9 +517,7 @@
     	});
 
         function filter(number){
-            if(sale[number].recordsession[0].ip === "raffle" || sale[number].recordsession[0].ip === "concession") {
-                    return false;
-                }
+           
 
             if(sale[number].recordcards[0] != null ) {
               if(sale[number].recorddetails[0].email === "oli.m.james@gmail.com" ) {
@@ -527,24 +525,7 @@
                 }
             }
             
-            if(number > 37 && number < 45) {
-                return false;
-            }
-            if(number > 201 && number < 206) {
-                return false;
-            }
-            if(number > 114 && number < 118) {
-                return false;
-            }
-            if(number > 123 && number < 132) {
-                return false;
-            }
-            if(number > 239 && number < 330) {
-                return false;
-            }
-            if(number > 335 && number < 342) {
-                return false;
-            }
+           
 
             return true;
         }
