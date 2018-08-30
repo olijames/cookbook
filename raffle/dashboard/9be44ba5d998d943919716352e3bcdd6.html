@@ -81,32 +81,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="logo">
-                <a  class="simple-text">
-                    Raffle
-                </a>
-            </div>
-            <ul class="nav">
-                <li id='tickets' class="menuitem">
-                    <a  href="#" onClick="move('tickets')">
-                        <i class="ti-receipt"></i>
-                        <p>Tickets</p>
-                    </a>
-                </li>
-                <li id="sale" class="menuitem">
-                    <a  href="#" onClick="move('sale')">
-                        <i class="ti-user"></i>
-                        <p>Sales</p>
-                    </a>
-                </li>
-                <li id="iraffle" class="menuitem">
-                    <a  href="#" onClick="move('iraffle')">
-                        <i class="ti-flag-alt-2"></i>
-                        <p>Incomplete Orders</p>
-                    </a>
-                </li>
-                
-            </ul>
+            
     	</div>
     </div>
 
@@ -265,7 +240,7 @@
                                         <th>Delivery</th>
                                         <th>Email</th>
                                         <th>City</th>
-                                        <th>Street</th>
+                                        <th>Phone</th>
                                         <th>Date</th>
                                     </thead>
                                     <tbody id="masterTable">
@@ -548,7 +523,6 @@
             });
 
             fetchSales();
-            fetchTickets()
 
     	});
 
@@ -556,6 +530,12 @@
             if(sale[number].recordsession[0].ip === "raffle" || sale[number].recordsession[0].ip === "concession") {
                     return false;
                 }
+
+            if(sale[number].recordcards[0] != null ) {
+              if(sale[number].recorddetails[0].email === "oli.m.james@gmail.com" ) {
+                    return false;
+                }
+            }
             
             if(number > 37 && number < 45) {
                 return false;
@@ -581,34 +561,7 @@
 
         function raffleSort(all) {
 
-            for (var i = 0; i < all.length; i++) {
-                                
-                if(all[i].recordsession[0].ip === "raffle") {
-
-                    if(all[i].tickets.length > 0) {
-
-                        if(all[i].tickets[0].id > 50) {
-
-                            if(all[i].recorddetails[ all[i].recorddetails.length - 1 ].email != "oli.m.james@gmail.com") {
-                       
-                                raffle.push( sale[i] );
-                            }
-                        }
-                    } else {
-                        if(all[i].recorddetails.length > 0) {
-                            if(all[i].recorddetails[ all[i].recorddetails.length - 1 ].email != "oli.m.james@gmail.com") {
-
-                                var row = "<tr><td>" + all[i].id + "</td><td>" + all[i].recorddetails[ all[i].recorddetails.length - 1 ].fname + "</td><td>" +  all[i].recorddetails[ all[i].recorddetails.length - 1 ].email + "</td><td>" + all[i].recorddetails[ all[i].recorddetails.length - 1 ].note + "</td><td>" + all[i].recorddetails[ all[i].recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(all[i].created_at) + "</td></tr>";
-
-                                $("#iraffleTable").append(row);
-                            }
-
-                        }
-                    }
-                }
-            }
-
-            rafflerTable(raffle);
+            
         }
 
         function rafflerTable(raffle) {
@@ -643,7 +596,7 @@
 
                             hold = [];
                             
-                            raffleSort( data );
+                            //raffleSort( data );
                             
                             for (var i = 0; i < data.length; i++) {
                                 if( filter(i) ) {
@@ -912,7 +865,7 @@
 
            
 
-            var row = "<tr><td class='text-center'>" + item.recordorders[ item.recordorders.length - 1].amount + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + deliveryWrangler(item) + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
+            var row = "<tr><td class='text-center'>" + item.recordorders[ item.recordorders.length - 1].amount + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + deliveryWrangler(item) + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].note + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
 
             $("#" + table).append(row);
         }
