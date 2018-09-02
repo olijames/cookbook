@@ -475,13 +475,13 @@
             }
         };
 
-        function fetchSalesCSV(){
-            $.post( "https://desolate-lowlands-92183.herokuapp.com/sale/fetchAll" ) 
-                      .done(function( data ) {
+        // function fetchSalesCSV(){
+        //     $.post( "https://desolate-lowlands-92183.herokuapp.com/sale/fetchAll" ) 
+        //               .done(function( data ) {
 
                             
-                      });
-        }
+        //               });
+        // }
 
         
 
@@ -497,22 +497,19 @@
 
         var sale = null; 
         var ticket = null;
-        var raffle = []
+        var raffle = [];
+        var soldEmail = ["empty"];
+
 
     	$(document).ready(function(){
 
-        	demo.initChartist();
+        	
 
-        	$.notify({
-            	icon: 'ti-timer',
-            	message: "Please be patient, data loading"
-
-            },{
-                type: 'success',
-                timer: 9000
-            });
+        	
 
             fetchSales();
+
+            demo.initChartist();
 
     	});
 
@@ -523,6 +520,7 @@
               if(sale[number].recorddetails[0].email === "oli.m.james@gmail.com" ) {
                     return false;
                 }
+                soldEmail[soldEmail.length] = sale[number].recorddetails[0].email;
             }
             
            
@@ -530,34 +528,34 @@
             return true;
         }
 
-        function raffleSort(all) {
+        // function raffleSort(all) {
 
             
-        }
+        // }
 
-        function rafflerTable(raffle) {
+        // function rafflerTable(raffle) {
 
-            for (var i = 0; i < raffle.length; i++) {
-                if(raffle[i].recordcards.length > 0) {
-                    raffleTableRow(raffle[i], "raffleTable");
+        //     for (var i = 0; i < raffle.length; i++) {
+        //         if(raffle[i].recordcards.length > 0) {
+        //             raffleTableRow(raffle[i], "raffleTable");
 
                    
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
-        function raffleTableRow(item, table) {
+        // function raffleTableRow(item, table) {
 
-        	var range = (item.tickets[0].id + 1450);
+        // 	var range = (item.tickets[0].id + 1450);
 
-        	if(item.tickets.length > 1){
-        		range = range + " - " + ( range + item.tickets.length);
-        	}
+        // 	if(item.tickets.length > 1){
+        // 		range = range + " - " + ( range + item.tickets.length);
+        // 	}
 
-            var row = "<tr><td>" + item.tickets[0].name + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + range + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
+        //     var row = "<tr><td>" + item.tickets[0].name + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + range + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
 
-            $("#" + table).append(row);
-        }
+        //     $("#" + table).append(row);
+        // }
 
         function fetchSales(){
             $.post( "https://desolate-lowlands-92183.herokuapp.com/sale/fetch/", {"tok": getUrlParameter('t')} ) 
@@ -584,17 +582,17 @@
                       });
         }
 
-        function fetchTickets(){
-            $.get( "https://desolate-lowlands-92183.herokuapp.com/ticket")
-                      .done(function( data ) {
+        // function fetchTickets(){
+        //     $.get( "https://desolate-lowlands-92183.herokuapp.com/ticket")
+        //               .done(function( data ) {
 
-                        data.sort(function(a, b){return b.id - a.id});
+        //                 data.sort(function(a, b){return b.id - a.id});
 
-                            ticket = data;
+        //                     ticket = data;
 
-                            ticketTable()
-                      });
-        }
+        //                     ticketTable()
+        //               });
+        // }
 
         function ticketTable() {
         	for (var i = 0; i < ticket.length; i++) {
@@ -636,7 +634,7 @@
 
             $("#totalvisits").html(sale.length);
 
-            $("#incomplete").html( incomplete );
+            
 
 
             dateSort();
@@ -746,12 +744,14 @@
 
         	var locations = [];
         	var lcounter = 0;
+        	var incomplete = 0;
+        	
+        	
 
             for (var i = 0; i < sale.length; i++) {
                 if(sale[i].recordcards.length > 0) {
 
-                	locations[lcounter] = sale[i].recorddetails[0].street + " " + sale[i].recorddetails[0].suburb + " " + sale[i].recorddetails[0].city + " " + sale[i].recorddetails[0].postcode;
-                	lcounter= lcounter + 1;
+                	
 
                     masterTableRow(sale[i], "masterTable");
 
@@ -763,15 +763,26 @@
                         masterTableRow(sale[i], "postageTable");
                     }
                 } else {
-                    if(sale[i].recorddetails.length > 0) {
-                        var row = "<tr><td class='text-center'>" + sale[i].recordorders[ sale[i].recordorders.length - 1].amount + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].fname + " " + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].lname + "</td><td>" + deliveryWrangler(sale[i]) + "</td><td>" +  sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].email + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].city + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(sale[i].created_at) + "</td></tr>";
+
+                	
+
+                    if(sale[i].recorddetails.length > 0 && sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].email != 'oli.m.james@gmail.com') {
+                       
+                    	highlight = ""
+
+                		if (soldEmail.indexOf( sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].email ) < 0) { highlight = " class='highlighter' " }
+
+                        var row = "<tr" + highlight + "><td class='text-center'>" + sale[i].recordorders[ sale[i].recordorders.length - 1].amount + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].fname + " " + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].lname + "</td><td>" + deliveryWrangler(sale[i]) + "</td><td>" +  sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].email + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].city + "</td><td>" + sale[i].recorddetails[ sale[i].recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(sale[i].created_at) + "</td></tr>";
 
                         $("#ibookTable").append(row);
+
+                        incomplete++;
                     }
                 }
+
             }
             
-            demo.initGoogleMaps(locations);
+       		$("#incomplete").html( incomplete );
 
         }
 
@@ -826,6 +837,8 @@
                     break;
                 case "7":
                     result = 'Rural Delivery $12.45';
+                case "8":
+                    result = 'Selwyn';
             }
 
             return result;
@@ -834,11 +847,16 @@
 
         function masterTableRow(item, table) {
 
+        	var highlight = "";
+
+        	if( item.recorddetails[ item.recorddetails.length - 1 ].email == "aaronandfrances@farmside.co.nz" ) {highlight = " class='highlight' "}
            
 
-            var row = "<tr><td class='text-center'>" + item.recordorders[ item.recordorders.length - 1].amount + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + deliveryWrangler(item) + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].note + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
+            var row = "<tr" + highlight + "><td class='text-center'>" + item.recordorders[ item.recordorders.length - 1].amount + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + deliveryWrangler(item) + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].note + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
 
             $("#" + table).append(row);
+
+
         }
 
 
