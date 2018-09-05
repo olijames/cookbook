@@ -849,7 +849,7 @@
 
         	var highlight = "";
 
-        	if( item.recorddetails[ item.recorddetails.length - 1 ].email == "aaronandfrances@farmside.co.nz" ) {highlight = " class='highlight' "}
+        	if( item.id == 1142 || item.id == 1180 ) {highlight = " class='highlight' "}
            
 
             var row = "<tr" + highlight + "><td class='text-center'>" + item.recordorders[ item.recordorders.length - 1].amount + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + deliveryWrangler(item) + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].note + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
