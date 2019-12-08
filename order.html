@@ -568,14 +568,23 @@
 
 		function copies(number) {
 
+			currentPrice = 39.99
+				itemcode = 1
+
 			if( $("#promo").val() == "FOOD" ) {
 				currentPrice = 30.00
 				itemcode = 2
-				
-			} else {
-				currentPrice = 39.99
-				itemcode = 1
-			}
+			} 
+
+			if( $("#promo").val() == "VOLUNTEER" ) {
+				currentPrice = 10.00
+				itemcode = 3
+			} 
+
+			if( $("#promo").val() == "50%OFF" ||  $("#promo").val() == "50OFF" ) {
+				currentPrice = 19.99
+				itemcode = 4
+			} 
 
 			copyPrice = 0;
 			
