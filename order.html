@@ -116,21 +116,25 @@
 												<h5 >Promo Code</h5>
 												<div class="col-sm-12">
 
-														<div class="form-group label-floating">
-															<input id="promo" type="text" class="form-control" required>
-															<div class="help-block with-errors"></div>
-															<br />
+														
+														<div class="checkbox">
+															<label>
+																<input id="promo" type="checkbox" name="optionsCheckboxes" class="check">
+																Gift Wrapping &nbsp<b>$5.00</b>
+															</label>
 														</div>
+														<br />
+												<br />
 												</div>
 												<br />
 												<h5 id="shiping-method">Shipping Method </h5>
 												<div class="col-xs-12">
-													<div class="checkbox">
+													<!-- <div class="checkbox">
 														<label>
 															<input id="office" type="checkbox" name="optionsCheckboxes" class="check">
 															Pick Up from local Cancer Society office &nbsp<b>Free</b>
 														</label>
-													</div>
+													</div> -->
 													<div class="office hide">
 														<div class="checkbox">
 															<label>
@@ -492,8 +496,9 @@
 	var itemcode = 1;
 	var address = "";
 	var token = "";
+	var promo = 0;
 
-	var currentPrice = 39.99
+	var currentPrice = 20.00
 
 		$().ready(function(){
 
@@ -505,6 +510,13 @@
 			
 			
 		    if($(this).is(':checked')) {
+
+		    	if(this.id === 'promo'){
+		    		promo = 5;
+		    		
+		    		updatePrice();
+		    		return;
+		    	}
 
 		        if(this.id === 'office1' || this.id === 'office2' || this.id === 'office3' || this.id === 'office4' || this.id === 'office5') {
 		        	if(this.id === 'office1'){delivery = 1;}
@@ -560,6 +572,12 @@
 			    
 
 		    } else {
+		    	if(this.id === 'promo'){
+		    		promo = 0;
+		    		
+		    		updatePrice();
+		    		return;
+		    	}
 		    	$(".office").addClass("hide");
 		        deliveryPrice = 0;
 		        updatePrice();
@@ -568,23 +586,23 @@
 
 		function copies(number) {
 
-			currentPrice = 39.99
+			currentPrice = 20.00
 				itemcode = 1
 
-			if( $("#promo").val() == "FOOD" ) {
-				currentPrice = 30.00
-				itemcode = 2
-			} 
+			// if( promo ) {
+			// 	currentPrice = 25.00;
+			// 	itemcode = 1;
+			// } 
 
-			if( $("#promo").val() == "VOLUNTEER" ) {
-				currentPrice = 10.00
-				itemcode = 3
-			} 
+			// if( $("#promo").val() == "VOLUNTEER" ) {
+			// 	currentPrice = 10.00
+			// 	itemcode = 3
+			// } 
 
-			if( $("#promo").val() == "50%OFF" ||  $("#promo").val() == "50OFF" ) {
-				currentPrice = 19.99
-				itemcode = 4
-			} 
+			// if( $("#promo").val() == "50%OFF" ||  $("#promo").val() == "50OFF" ) {
+			// 	currentPrice = 19.99
+			// 	itemcode = 4
+			// } 
 
 			copyPrice = 0;
 			
@@ -617,7 +635,7 @@
 			//copyPrice = copyPrice.toFixed(2);
 			//deliveryPrice = deliveryPrice.toFixed(2);
 
-			priceEstimate = (copyPrice + deliveryPrice);
+			priceEstimate = (copyPrice + deliveryPrice + promo);
 			priceEstimate = priceEstimate.toFixed(2);
 			$( "#priceEstimate" ).html("$"+priceEstimate);
 		}
@@ -748,7 +766,7 @@
 		function stripesend( stripetoken ) {
 			submit();
 
-			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email, "promo": itemcode} )
+			$.post( "https://desolate-lowlands-92183.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": purchase, "delivery": delivery, "address": address, "token":token, "email":email, "promo": promo} )
 			              .done(function( data ) { console.log( data ); pass(); })
 			              .fail(function(data) {
 			              		console.log(data)
